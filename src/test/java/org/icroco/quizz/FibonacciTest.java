@@ -1,9 +1,8 @@
-package ori.icroco.quizz;
+package org.icroco.quizz;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-import static ori.icroco.quizz.Fibonacci.fibo;
+import static org.icroco.quizz.Fibonacci.fibo;
 
 public class FibonacciTest {
 

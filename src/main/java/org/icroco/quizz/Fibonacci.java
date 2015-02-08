@@ -1,4 +1,4 @@
-package ori.icroco.quizz;
+package org.icroco.quizz;
 
 /**
  * Created by christophe on 02/02/15.

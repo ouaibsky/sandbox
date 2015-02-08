@@ -1,4 +1,4 @@
-package ori.icroco.quizz;
+package org.icroco.quizz;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

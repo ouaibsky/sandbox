@@ -1,4 +1,4 @@
-package ori.icroco.quizz;
+package org.icroco.quizz;
 
 import java.math.BigInteger;
 import java.util.ArrayList;

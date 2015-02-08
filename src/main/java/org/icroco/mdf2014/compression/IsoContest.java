@@ -8,6 +8,7 @@
 package org.icroco.mdf2014.compression;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,21 +16,27 @@ public class IsoContest {
     public static void main(String[] argv) throws Exception {
         String line;
         Scanner sc = new Scanner(System.in);
-        int pos = 0;
-        String [] colors = {"violet", "orange", "jaune", "vert", "rose", "bleu", };
 
-        List<Integer> values = new ArrayList<>(20);
-        while (sc.hasNextLine()) {
-            line = sc.nextLine();
-            values.add(Integer.valueOf(line.trim()));
-            /* Lisez les données et effectuez votre traitement */
+        line = sc.nextLine();
+        char[] values = line.trim().toCharArray();
+        int repeat = 0;
+        char value = 0;
+        IsoContestBase.localEcho("Array: "+ Arrays.toString(values));
+
+        for (int i = 0; i < values.length; i++) {
+            if (repeat == 0) {
+                value = values[i];
+                repeat = 1;
+            } else if (values[i] == value) {
+                repeat++;
+            } else {
+                System.out.print((repeat == 1 ? value : (repeat > 2 ? repeat + String.valueOf(value) : String.valueOf(value) + String.valueOf(value))));
+                value = values[i];
+                repeat = 1;
+            }
         }
-        for (Integer v: values) {
-            pos += v;
-       }
-        IsoContestBase.localEcho("pos: " + pos);
-        IsoContestBase.localEcho("pos r: " + (pos % 48 % 6));
-        System.out.println(colors[pos % 48 % 6]);
+        System.out.println((repeat == 1 ? value : (repeat > 2 ? repeat + String.valueOf(value) : String.valueOf(value) + String.valueOf(value))));
+
 	/* Vous pouvez aussi effectuer votre traitement une fois que vous avez lu toutes les données.*/
     }
 }

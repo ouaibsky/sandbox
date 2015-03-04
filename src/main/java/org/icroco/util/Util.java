@@ -1,7 +1,9 @@
 package org.icroco.util;
 
 import java.io.IOException;
+import java.net.URI;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Collection;
@@ -80,4 +82,16 @@ public class Util {
         Double[] doubleArr = convertArray(stringArr, Double::parseDouble, Double[]::new);
         Integer[] intArr = convertArray(stringArr, Integer::parseInt, Integer[]::new);
     }
+
+    public static List<String> readFile(final URI aInput) throws IOException {
+        if (aInput == null)
+            throw  new IllegalArgumentException("Input File Not Found: "+aInput);
+
+        Path path = Paths.get(aInput);
+        List<String> result =  Files.readAllLines(path);
+        result.forEach(s -> System.err.println(s));
+
+        return result;
+    }
+
 }

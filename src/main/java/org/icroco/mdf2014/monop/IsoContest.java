@@ -32,6 +32,7 @@ public class IsoContest {
         sLine = sc.nextLine().split("\\s+");
         Integer [] game = convertArray(sLine, Integer::parseInt, Integer[]::new);
         localEcho("game: " + Arrays.toString(game));
+
         if (game.length % 2 != 0)
             throw new IllegalArgumentException("Nombre impairs: "+game);
 

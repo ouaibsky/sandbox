@@ -11,7 +11,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static org.icroco.mdf2014.motpluscourant.IsoContestBase.localEcho;
 
 public class IsoContest {
     public static void main(String[] argv) throws Exception {
@@ -25,18 +24,18 @@ public class IsoContest {
             line = sc.nextLine().toLowerCase();
             final String test = line.chars().map(c -> (Character.isLetter(c) || Character.isSpaceChar(c)) ? c : ' ').collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append).toString();
             texts.add(test);
-            localEcho("add new line: " + test);
+            System.err.println("add new line: " + test);
             /* Lisez les données et effectuez votre traitement */
         }
 
         int i = 0;
         for (String item : texts) {
             final String[] words = item.split("\\s+");
-            localEcho("words: " + Arrays.toString(words));
+            System.err.println("words: " + Arrays.toString(words));
             Map<String, Integer> wordCount = Arrays.asList(words).stream().filter(w -> w.length() > 1).collect(Collectors.groupingBy(e -> e, Collectors.summingInt(e -> 1)));
             values.put(i, wordCount);
             wordCount.forEach((key, value) -> {
-                localEcho("Key: " + key + "\t" + " Value: " + value);
+                System.err.println("Key: " + key + "\t" + " Value: " + value);
             });
             i++;
         }
@@ -70,7 +69,7 @@ public class IsoContest {
         };
 
         all.entrySet().stream().sorted(comp).forEach((entry) -> {
-            localEcho("All: "+entry.getValue() + " " + entry.getKey());
+            System.err.println("All: " + entry.getValue() + " " + entry.getKey());
         });
 
         all.entrySet().stream().sorted(comp).limit(3).forEach((entry) -> {
@@ -81,7 +80,7 @@ public class IsoContest {
     }
 
     private static void remove(String word, Map<Integer, Map<String, Integer>> values) {
-        localEcho("Remove: " + word);
+        System.err.println("Remove: " + word);
         for (Map<String, Integer> line : values.values()) {
             line.remove(word);
         }
@@ -93,7 +92,7 @@ public class IsoContest {
                 return false;
         }
 
-        localEcho("Present everywhere: "+word);
+        System.err.println("Present everywhere: " + word);
         return true;
     }
 
@@ -101,9 +100,3 @@ public class IsoContest {
 /* 
  * DO NOT PASTE THIS UTILITY CODE BACK INTO THE BROWSER WINDOW
  */
-
-class IsoContestBase {
-    public static void localEcho(String txt) {
-        System.err.println("err: " + txt);
-    }
-}

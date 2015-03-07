@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import static org.icroco.mdf2014.geoplane.IsoContestBase.*;
 
 public class IsoContest {
 
@@ -56,9 +55,3 @@ public class IsoContest {
 /* 
  * DO NOT PASTE THIS UTILITY CODE BACK INTO THE BROWSER WINDOW
  */
-
-class IsoContestBase {
-    public static void localEcho(String txt) {
-        System.err.println(txt);
-    }
-}

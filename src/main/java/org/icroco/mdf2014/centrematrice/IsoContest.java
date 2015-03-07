@@ -9,10 +9,8 @@ package org.icroco.mdf2014.centrematrice;
 
 import java.math.BigDecimal;
 import java.util.*;
-import java.util.regex.Pattern;
 
-import static org.icroco.util.Util.convertArray;
-import static org.icroco.util.Util.convertList;
+import static org.icroco.util.StringUtil8.convertArray;
 
 public class IsoContest {
     public static void main(String[] argv) throws Exception {
@@ -83,9 +81,3 @@ public class IsoContest {
 /* 
  * DO NOT PASTE THIS UTILITY CODE BACK INTO THE BROWSER WINDOW
  */
-
-class IsoContestBase {
-    public static void localEcho(String txt) {
-        System.err.println("err: "+txt);
-    }
-}

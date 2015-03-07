@@ -17,19 +17,35 @@ import java.util.stream.Stream;
 /**
  * Created by christophe on 07/02/15.
  */
-public class Util {
+public class StringUtil8 {
+
 
 
     //for lists
+    /**
+     *  List<String> stringList = Arrays.asList("1", "2", "3");
+     *  List<Integer> integerList = convertList(stringList, s -> Integer.parseInt(s));
+     *  List<Double> doubleList = convertList(stringList, s -> Double.parseDouble(s));
+     */
     public static <T, U> List<U> convertList(List<T> from, Function<T, U> func) {
         return from.stream().map(func).collect(Collectors.toList());
     }
 
+    /**
+     *    String[] stringArr = {"1", "2", "3"};
+     *    Double[] doubleArr = convertArray(stringArr, Double::parseDouble, Double[]::new);
+     *    Integer[] intArr   = convertArray(stringArr, Integer::parseInt, Integer[]::new);
+     *
+     */
     //for arrays
     public static <T, U> U[] convertArray(T[] from, Function<T, U> func, IntFunction<U[]> generator) {
         return Arrays.stream(from).map(func).toArray(generator);
     }
 
+    /**
+     * Extraire Even Number
+     *
+     */
     public static Integer[] extractEven(Collection<Integer> aValues) {
         Stream<Integer> stream = aValues.stream();
         return stream.filter(i -> i % 2 == 0).toArray(Integer[]::new);
@@ -53,7 +69,7 @@ public class Util {
                 .count();
     }
 
-    public void splitStringintoDistinctChar(String randomParagraph) throws IOException {
+    public void splitStringIntoDistinctChar(String randomParagraph) throws IOException {
         Files.lines(Paths.get("stuff.txt"))
                 .map(line -> line.split("\\s+")) // Stream<String[]>
                 .flatMap(Arrays::stream) // Stream<String>
@@ -71,18 +87,9 @@ public class Util {
         System.out.println("Average of all prime numbers : " + stats.getAverage());
     }
 
-    static {
-        //for lists
-        List<String> stringList = Arrays.asList("1", "2", "3");
-        List<Integer> integerList = convertList(stringList, s -> Integer.parseInt(s));
-        // Note that s -> Integer.parseInt(s) could be replace with Integer::parseInt
-
-        //for arrays
-        String[] stringArr = {"1", "2", "3"};
-        Double[] doubleArr = convertArray(stringArr, Double::parseDouble, Double[]::new);
-        Integer[] intArr = convertArray(stringArr, Integer::parseInt, Integer[]::new);
-    }
-
+    /**
+     * Read a file and return ist of line
+     */
     public static List<String> readFile(final URI aInput) throws IOException {
         if (aInput == null)
             throw  new IllegalArgumentException("Input File Not Found: "+aInput);

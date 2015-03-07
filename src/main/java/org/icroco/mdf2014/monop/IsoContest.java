@@ -7,15 +7,10 @@
  * ***/
 package org.icroco.mdf2014.monop;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
-import static org.icroco.mdf2014.monop.IsoContestBase.localEcho;
-import static org.icroco.util.Util.convertArray;
+import static org.icroco.util.StringUtil8.convertArray;
 
 public class IsoContest {
     public static void main(String[] argv) throws Exception {
@@ -25,13 +20,13 @@ public class IsoContest {
         String [] colors = {"violet", "orange", "jaune", "vert", "rose", "bleu" };
         int amount = sc.nextInt();
         sc.nextLine();
-        localEcho("amount: " + amount);
+        System.err.println("amount: " + amount);
         String sLine[] = sc.nextLine().split("\\s+");
         Integer [] cashOut = convertArray(sLine, Integer::parseInt, Integer[]::new);
-        localEcho("cashOut: " + Arrays.toString(cashOut));
+        System.err.println("cashOut: " + Arrays.toString(cashOut));
         sLine = sc.nextLine().split("\\s+");
         Integer [] game = convertArray(sLine, Integer::parseInt, Integer[]::new);
-        localEcho("game: " + Arrays.toString(game));
+        System.err.println("game: " + Arrays.toString(game));
 
         if (game.length % 2 != 0)
             throw new IllegalArgumentException("Nombre impairs: "+game);
@@ -44,7 +39,7 @@ public class IsoContest {
                 pos = 10;
             int old = amount;
             amount -= cashOut[pos-1];
-            localEcho("old: " +old+" game: "+count+" pos: "+pos+" loss: "+cashOut[pos-1]+" new: "+amount);
+            System.err.println("old: " +old+" game: "+count+" pos: "+pos+" loss: "+cashOut[pos-1]+" new: "+amount);
             if (amount <= 0) {
                 System.out.println(pos);
                 break;
@@ -61,8 +56,3 @@ public class IsoContest {
  * DO NOT PASTE THIS UTILITY CODE BACK INTO THE BROWSER WINDOW
  */
 
-class IsoContestBase {
-    public static void localEcho(String txt) {
-        System.err.println(txt);
-    }
-}

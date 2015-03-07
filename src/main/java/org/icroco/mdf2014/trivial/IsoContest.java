@@ -27,8 +27,8 @@ public class IsoContest {
         for (Integer v: values) {
             pos += v;
        }
-        IsoContestBase.localEcho("pos: "+pos);
-        IsoContestBase.localEcho("pos r: "+(pos % 48 % 6));
+        System.err.println("pos: "+pos);
+        System.err.println("pos r: " + (pos % 48 % 6));
         System.out.println(colors[pos % 48 % 6]);
 	/* Vous pouvez aussi effectuer votre traitement une fois que vous avez lu toutes les données.*/
     }
@@ -37,8 +37,3 @@ public class IsoContest {
  * DO NOT PASTE THIS UTILITY CODE BACK INTO THE BROWSER WINDOW
  */
 
-class IsoContestBase {
-    public static void localEcho(String txt) {
-        System.err.println(txt);
-    }
-}

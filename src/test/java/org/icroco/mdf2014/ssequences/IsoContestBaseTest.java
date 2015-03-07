@@ -1,21 +1,12 @@
 package org.icroco.mdf2014.ssequences;
 
-import org.icroco.util.Util;
+import org.icroco.util.StringUtil8;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URI;
 import java.net.URISyntaxException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Stream;
-
-import static org.junit.Assert.*;
 
 public class IsoContestBaseTest {
 
@@ -41,10 +32,10 @@ public class IsoContestBaseTest {
 
     public static void executeAndCompare(final String aInput, final String aExpectedOutput) throws URISyntaxException, IOException {
             System.err.println("** Input *");
-            List<String> input = Util.readFile(IsoContest.class.getResource(aInput).toURI());
+            List<String> input = StringUtil8.readFile(IsoContest.class.getResource(aInput).toURI());
             System.err.println("");
             System.err.println("** Expected *");
-            List<String> expectedOutput = Util.readFile(IsoContest.class.getResource(aExpectedOutput).toURI());
+            List<String> expectedOutput = StringUtil8.readFile(IsoContest.class.getResource(aExpectedOutput).toURI());
             System.err.println("");
             System.err.println("** Given *");
             List<String> output = IsoContest.getSolution2(input);

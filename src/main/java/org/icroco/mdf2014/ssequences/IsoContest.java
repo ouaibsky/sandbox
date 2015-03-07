@@ -10,7 +10,6 @@ package org.icroco.mdf2014.ssequences;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static org.icroco.mdf2014.ssequences.IsoContestBase.localEcho;
 
 public class IsoContest {
     public static void main(String[] argv) throws Exception {
@@ -133,9 +132,3 @@ public class IsoContest {
 /* 
  * DO NOT PASTE THIS UTILITY CODE BACK INTO THE BROWSER WINDOW
  */
-
-class IsoContestBase {
-    public static void localEcho(String txt) {
-        System.err.println(txt);
-    }
-}

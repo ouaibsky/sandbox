@@ -21,7 +21,7 @@ public class IsoContest {
         char[] values = line.trim().toCharArray();
         int repeat = 0;
         char value = 0;
-        IsoContestBase.localEcho("Array: "+ Arrays.toString(values));
+        System.err.println("Array: "+ Arrays.toString(values));
 
         for (int i = 0; i < values.length; i++) {
             if (repeat == 0) {
@@ -44,8 +44,3 @@ public class IsoContest {
  * DO NOT PASTE THIS UTILITY CODE BACK INTO THE BROWSER WINDOW
  */
 
-class IsoContestBase {
-    public static void localEcho(String txt) {
-        System.err.println(txt);
-    }
-}

@@ -41,22 +41,22 @@ public class IsoContest {
         int E = M[centre][centre];
         IsoContestBase.localEcho("Center Value is: "+E);
 
-        for (int i = 0; i < M.length ; i++) {
-            for (int j = 0; j < M[i].length; j++) {
-                if (M[i][j] > max) {
-                    max = M[i][j];
-                    mX = i;
-                    mY = j;
+        for (int row = 0; row < M.length ; row++) {
+            for (int col = 0; col < M[row].length; col++) {
+                if (M[row][col] > max) {
+                    max = M[row][col];
+                    mX = col;
+                    mY = row;
                     IsoContestBase.localEcho("Max: "+max+" ["+mX+","+mY+"]");
                 } else
-                if (M[i][j] == max) {
+                if (M[row][col] == max) {
                     // calcule equidistance
-                    int mD = Math.abs(mX-centre)+Math.abs(centre - mY);
-                    int cD = Math.abs(i-centre)+Math.abs(centre - j);
+                    int mD = Math.abs(mY-centre)+Math.abs(centre - mX);
+                    int cD = Math.abs(col-centre)+Math.abs(centre - row);
                     if (cD < mD) {
-                        max = M[i][j];
-                        mX = i;
-                        mY = j;
+                        max = M[row][col];
+                        mX = col;
+                        mY = row;
                         IsoContestBase.localEcho("Max: "+max+" ["+mX+","+mY+"]");
                     }
                 }

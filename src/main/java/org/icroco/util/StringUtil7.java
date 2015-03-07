@@ -118,8 +118,8 @@ public class StringUtil7 {
 
         final Path path = Paths.get(aInput);
         final List<String> result =  Files.readAllLines(path, Charset.defaultCharset());
-        for (String line: result)
-            System.err.println(line);
+//        for (String line: result)
+//            System.err.println(line);
 
         return result;
     }

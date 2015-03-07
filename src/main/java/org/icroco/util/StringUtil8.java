@@ -96,7 +96,7 @@ public class StringUtil8 {
 
         Path path = Paths.get(aInput);
         List<String> result =  Files.readAllLines(path);
-        result.forEach(s -> System.err.println(s));
+        //result.forEach(s -> System.err.println(s));
 
         return result;
     }

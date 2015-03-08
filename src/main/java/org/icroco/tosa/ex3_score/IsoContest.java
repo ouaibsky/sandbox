@@ -1,4 +1,4 @@
-package org.icroco.tosa.ex3;
+package org.icroco.tosa.ex3_score;
 
 
 import java.util.*;

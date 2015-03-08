@@ -1,4 +1,4 @@
-package org.icroco.tosa.ex2;
+package org.icroco.tosa.ex2_cible;
 
 import java.util.*;
 

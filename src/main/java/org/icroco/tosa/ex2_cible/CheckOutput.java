@@ -1,7 +1,7 @@
-package org.icroco.tosa.ex1;
-
+package org.icroco.tosa.ex2_cible;
 
 import org.icroco.util.StringUtil7;
+
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Arrays;
@@ -13,8 +13,8 @@ import java.util.List;
 class CheckOutput {
 
     public static void executeAndCompareFromFile(final String aInput, final String aExpectedOutput) throws URISyntaxException, IOException {
-        List<String> input = StringUtil7.readFile(org.icroco.mdf2014.ssequences.IsoContest.class.getResource(aInput).toURI());
-        List<String> expectedOutput = StringUtil7.readFile(org.icroco.mdf2014.ssequences.IsoContest.class.getResource(aExpectedOutput).toURI());
+        List<String> input = StringUtil7.readFile(IsoContest.class.getResource(aInput).toURI());
+        List<String> expectedOutput = StringUtil7.readFile(IsoContest.class.getResource(aExpectedOutput).toURI());
 
         executeAndCompare(input, expectedOutput);
     }
@@ -31,11 +31,11 @@ class CheckOutput {
             IsoContestBase.localEcho(s);
         System.err.println("");
         System.err.println("** Given *");
-        System.err.flush();
+
 
         for (String s: output)
-            System.out.println(s);
-        System.out.flush();
+            System.err.println(s);
+
 
         System.err.println("");
         System.err.println("** End *");
@@ -45,7 +45,10 @@ class CheckOutput {
     }
 
     public static void main(String[] args) throws IOException, URISyntaxException {
-        executeAndCompare(Arrays.asList("1 2 9 A B 11 3 4 5"), Arrays.asList("9 A B"));
+//        executeAndCompare(Arrays.asList("1 2 9 A B 11 3 4 5"), Arrays.asList("9 A B"));
+        executeAndCompareFromFile("input1.txt", "output1.txt");
+        executeAndCompareFromFile("input2.txt", "output2.txt");
+        executeAndCompareFromFile("input3.txt", "output3.txt");
     }
 
 

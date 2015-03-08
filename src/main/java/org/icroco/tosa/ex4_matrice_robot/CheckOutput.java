@@ -1,4 +1,4 @@
-package org.icroco.tosa.ex3;
+package org.icroco.tosa.ex4_matrice_robot;
 
 import org.icroco.util.StringUtil7;
 

@@ -1,4 +1,4 @@
-package org.icroco.tosa.ex4;
+package org.icroco.tosa.ex4_matrice_robot;
 
 import java.util.*;
 

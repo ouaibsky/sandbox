@@ -1,4 +1,4 @@
-package org.icroco.tosa.ex4;
+package org.icroco.tosa.ex3_score;
 
 import org.icroco.util.StringUtil7;
 

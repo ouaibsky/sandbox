@@ -1,7 +1,6 @@
-package org.icroco.tosa.template;
+package org.icroco.tosa.ex5_carte;
 
 import java.util.*;
-
 
 
 /**
@@ -29,26 +28,32 @@ public class IsoContest {
     static List<String> getSolution(LinkedList<String> aInput) {
         LinkedList<String> output = new LinkedList<>();
 
-        String first = aInput.removeFirst(); // TODO if integer ...
+        List<String> jeuxComplet =  remplirJeux();
 
-        for (String word: aInput) {  // TODO
 
+        String line = aInput.removeFirst();
+
+        String[] cartes = line.split("\\s+");
+        for (String carte: cartes) {
+            if (jeuxComplet.remove(carte));
         }
+
+        String result = "";
+        for (String s: jeuxComplet)
+            result+=" "+s;
+        output.add(result.trim());
 
         return output;
     }
 
-
-    final static LinkedList<String> splitSpace(final String aLine) {
-        return new LinkedList<>(Arrays.asList(aLine.split("\\s+")));
-    }
-
-    final static LinkedList<Integer> convertIntList(List<String> from) {
-        final LinkedList<Integer> result = new LinkedList<>();
-        for (String s: from) {
-            result.add(Integer.parseInt(s, 16));
+    private static List<String> remplirJeux() {
+        List<String> jeux = new ArrayList<>();
+        for (String color: Arrays.asList("C", "P", "Q","T")) {
+            for (String carte: Arrays.asList("2","3","4","5","6","7","8","9","10","V","D","R","A")) {
+                jeux.add(color+carte);
+            }
         }
-        return result;
+        return jeux;
     }
 
 }

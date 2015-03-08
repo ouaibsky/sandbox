@@ -1,10 +1,11 @@
-package org.icroco.tosa.ex2;
+package org.icroco.tosa.ex5_carte;
 
 import org.icroco.util.StringUtil7;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -13,14 +14,13 @@ import java.util.List;
 class CheckOutput {
 
     public static void executeAndCompareFromFile(final String aInput, final String aExpectedOutput) throws URISyntaxException, IOException {
-        List<String> input = StringUtil7.readFile(IsoContest.class.getResource(aInput).toURI());
-        List<String> expectedOutput = StringUtil7.readFile(IsoContest.class.getResource(aExpectedOutput).toURI());
+        LinkedList<String> input = StringUtil7.readFile(CheckOutput.class.getResource(aInput).toURI());
+        List<String> expectedOutput = StringUtil7.readFile(CheckOutput.class.getResource(aExpectedOutput).toURI());
 
         executeAndCompare(input, expectedOutput);
     }
 
-    public static void executeAndCompare(final List<String> aInput, final List<String> aExpectedOutput) throws URISyntaxException, IOException {
-        List<String> output = IsoContest.getSolution(aInput);
+    public static void executeAndCompare(final LinkedList<String> aInput, final List<String> aExpectedOutput) throws URISyntaxException, IOException {
 
         System.err.println("** Input *");
         for (String s: aInput)
@@ -31,14 +31,19 @@ class CheckOutput {
             IsoContestBase.localEcho(s);
         System.err.println("");
         System.err.println("** Given *");
+        System.err.flush();
+
+        long start = System.currentTimeMillis();
+        List<String> output = IsoContest.getSolution(aInput);
 
 
         for (String s: output)
             System.err.println(s);
-
+        long end = System.currentTimeMillis();
+        System.err.flush();
 
         System.err.println("");
-        System.err.println("** End *");
+        System.err.println("** End, took: "+(end -start)+"ms");
 
         if (!Arrays.equals(aExpectedOutput.toArray(new String[0]), output.toArray(new String[0])))
             throw new IllegalStateException("output is not as expected");

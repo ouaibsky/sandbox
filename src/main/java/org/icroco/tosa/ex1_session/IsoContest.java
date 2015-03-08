@@ -1,4 +1,4 @@
-package org.icroco.tosa.ex1;
+package org.icroco.tosa.ex1_session;
 
 import java.util.*;
 

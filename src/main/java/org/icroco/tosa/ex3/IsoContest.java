@@ -1,6 +1,6 @@
 package org.icroco.tosa.ex3;
 
-import java.nio.charset.CharsetEncoder;
+
 import java.util.*;
 
 
@@ -16,6 +16,8 @@ public class IsoContest {
 
         line = sc.nextLine();
         input.add(line);
+        while (sc.hasNextLine())
+            input.add(sc.nextLine());
 
         List<String> output = getSolution(input);
 

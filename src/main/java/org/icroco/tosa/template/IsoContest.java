@@ -1,5 +1,7 @@
 package org.icroco.tosa.template;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 
@@ -17,12 +19,12 @@ public class IsoContest {
         line = sc.nextLine();       // TODO check if applicable
         input.add(line);            // TODO check if applicable
 
-        while(sc.hasNextLine())     // TODO check if applicable
+        while (sc.hasNextLine())     // TODO check if applicable
             input.add(sc.nextLine());
 
         List<String> output = getSolution(input);
 
-        for (String s: output)
+        for (String s : output)
             System.out.println(s);
     }
 
@@ -31,7 +33,7 @@ public class IsoContest {
 
         String first = aInput.removeFirst(); // TODO if integer ...
 
-        for (String word: aInput) {  // TODO
+        for (String word : aInput) {  // TODO
 
         }
 
@@ -42,6 +44,12 @@ public class IsoContest {
     final static LinkedList<String> splitSpace(final String aLine) {
         return new LinkedList<>(Arrays.asList(aLine.split("\\s+")));
     }
+
+    final Date parseDate(String format, String data) throws ParseException {
+        final SimpleDateFormat df = new SimpleDateFormat(format);
+        return df.parse(data);
+    }
+
 
     final static LinkedList<Integer> convertIntList(List<String> from) {
         final LinkedList<Integer> result = new LinkedList<>();

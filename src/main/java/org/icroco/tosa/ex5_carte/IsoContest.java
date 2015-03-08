@@ -13,9 +13,6 @@ public class IsoContest {
         LinkedList<String> input = new LinkedList<>();
         Scanner sc = new Scanner(System.in);
 
-        line = sc.nextLine();       // TODO check if applicable
-        input.add(line);            // TODO check if applicable
-
         while(sc.hasNextLine())     // TODO check if applicable
             input.add(sc.nextLine());
 

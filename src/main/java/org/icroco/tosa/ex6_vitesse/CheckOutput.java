@@ -1,9 +1,7 @@
-package org.icroco.tosa.template;
+package org.icroco.tosa.ex6_vitesse;
 
 import org.icroco.util.StringUtil7;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -20,7 +18,7 @@ class CheckOutput {
         executeAndCompare(input, expectedOutput);
     }
 
-    public static void executeAndCompare(final LinkedList<String> aInput, final List<String> aExpectedOutput) throws Exception{
+    public static void executeAndCompare(final LinkedList<String> aInput, final List<String> aExpectedOutput) throws Exception {
 
         System.err.println("** Input *");
         for (String s: aInput)

@@ -5,10 +5,7 @@ import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.IntSummaryStatistics;
-import java.util.List;
+import java.util.*;
 import java.util.function.Function;
 import java.util.function.IntFunction;
 import java.util.stream.Collectors;
@@ -90,7 +87,7 @@ public class StringUtil8 {
     /**
      * Read a file and return ist of line
      */
-    public static List<String> readFile(final URI aInput) throws IOException {
+    public static LinkedList<String> readFile(final URI aInput) throws IOException {
         if (aInput == null)
             throw  new IllegalArgumentException("Input File Not Found: "+aInput);
 
@@ -98,7 +95,7 @@ public class StringUtil8 {
         List<String> result =  Files.readAllLines(path);
         //result.forEach(s -> System.err.println(s));
 
-        return result;
+        return new LinkedList<>(result);
     }
 
 }

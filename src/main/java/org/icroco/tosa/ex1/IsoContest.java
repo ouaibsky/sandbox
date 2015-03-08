@@ -21,17 +21,12 @@ public class IsoContest {
     }
 
     static List<String> getSolution(List<String> aInput) {
-        IsoContestBase.localEcho("*** input **");
-        for (String s: aInput)
-            IsoContestBase.localEcho(s);
-        IsoContestBase.localEcho("************");
-        IsoContestBase.localEcho("");
         LinkedList<Integer> iInput = convertIntList(splitSpace(aInput.get(0)));
         List<Integer> lastSeq = new ArrayList<>();
         LinkedList<Integer> curSeq = new LinkedList<>();
 
         for (Integer i: iInput) {
-            IsoContestBase.localEcho("parse: " + i + " (" + Integer.toHexString(i) + ")");
+            //IsoContestBase.localEcho("parse: " + i + " (" + Integer.toHexString(i) + ")");
             if (curSeq.isEmpty()) {
                 curSeq.add(i);
             }
@@ -45,7 +40,7 @@ public class IsoContest {
                     }
                     curSeq.clear();
                     curSeq.add(i);
-                    IsoContestBase.localEcho("Start new seq");
+                    //IsoContestBase.localEcho("Start new seq");
                 }
             }
         }

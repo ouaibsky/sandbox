@@ -1,4 +1,4 @@
-package org.icroco.tosa.template;
+package org.icroco.tosa.ex3;
 
 import org.icroco.util.StringUtil7;
 

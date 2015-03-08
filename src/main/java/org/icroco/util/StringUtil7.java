@@ -7,10 +7,7 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by christophe on 07/02/15.
@@ -112,7 +109,7 @@ public class StringUtil7 {
     /**
      * Read a file and return ist of line
      */
-    public static List<String> readFile(final URI aInput) throws IOException {
+    public static LinkedList<String> readFile(final URI aInput) throws IOException {
         if (aInput == null)
             throw  new IllegalArgumentException("Input File Not Found: "+aInput);
 
@@ -121,7 +118,7 @@ public class StringUtil7 {
 //        for (String line: result)
 //            System.err.println(line);
 
-        return result;
+        return new LinkedList<>(result);
     }
 
 }

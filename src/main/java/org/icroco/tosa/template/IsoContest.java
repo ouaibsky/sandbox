@@ -11,23 +11,34 @@ import java.util.*;
 public class IsoContest {
     public static void main(String[] argv) throws Exception {
         String line;
+        LinkedList<String> input = new LinkedList<>();
         Scanner sc = new Scanner(System.in);
+
         line = sc.nextLine();
-        List<String> input = new ArrayList<>(10);
         input.add(line);
+
         List<String> output = getSolution(input);
 
         for (String s: output)
             System.out.println(s);
     }
 
-    static List<String> getSolution(List<String> aInput) {
-        return Arrays.asList("??");
+    static List<String> getSolution(LinkedList<String> aInput) {
+        LinkedList<String> output = new LinkedList<>();
+
+        String first = aInput.removeFirst(); // TODO
+
+
+        for (String word: aInput) {
+            // TODO
+        }
+
+        return output;
     }
 
 
-    final static List<String> splitSpace(final String aLine) {
-        return Arrays.asList(aLine.split("\\s+"));
+    final static LinkedList<String> splitSpace(final String aLine) {
+        return new LinkedList<>(Arrays.asList(aLine.split("\\s+")));
     }
 
     final static LinkedList<Integer> convertIntList(List<String> from) {

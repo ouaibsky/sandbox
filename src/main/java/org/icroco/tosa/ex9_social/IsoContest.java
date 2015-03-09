@@ -1,8 +1,7 @@
-package org.icroco.tosa.template;
+package org.icroco.tosa.ex9_social;
 
 
 import java.util.*;
-
 
 
 /**

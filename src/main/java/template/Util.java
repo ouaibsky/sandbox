@@ -1,4 +1,4 @@
-package org.icroco.util;
+package template;
 
 
 import java.io.IOException;
@@ -12,7 +12,7 @@ import java.util.*;
 /**
  * Created by christophe on 07/02/15.
  */
-public class StringUtil7 {
+public class Util {
 
 
     //for lists
@@ -105,13 +105,13 @@ public class StringUtil7 {
         for (int i = 0; i < aInput.size(); i++) {
             String[] numbers = aInput.get(i).split("\\s+");
             for (int j = 0; j < numbers.length; j++) {
-                result[i + j] = Integer.parseInt(numbers[j]);
+                result[i*aRowSize + j] = Integer.parseInt(numbers[j]);
             }
         }
         return result;
     }
 
-    public static Integer[][] extractMatrix(int aRowSize, List<String> aInput) {
+    public static Integer[][] extractMatrix(List<String> aInput, int aRowSize) {
         Integer[][] result = new Integer[aInput.size()][aRowSize];
 
         for (int i = 0; i < aInput.size(); i++) {
@@ -123,19 +123,33 @@ public class StringUtil7 {
         return result;
     }
 
+//    public static Integer[] extractCenter(Integer[] matrix, int aRowSize, int aNewRowSize) {
+//        Integer [] result = new Integer[aNewRowSize*aNewRowSize];
+//
+//        int j = 0;
+//        for (int i = 0; i < matrix.length ; i++) {
+//            if ((i/aRowSize >= aNewRowSize-1) && (i / aRowSize) <= (aRowSize - aNewRowSize) && (i % aRowSize) >= (aNewRowSize-1) && (i % aRowSize) <= (aRowSize - aNewRowSize)) {
+//                result[j] = matrix[i];
+//                j++;
+//            }
+//        }
+//        return result;
+//    }
+
     public static void printMatrix(Integer[] flatMatrix, int aColumnSize, int padding) {
         for (int i = 0; i < flatMatrix.length; i++) {
-            System.err.printf("%1$" + padding + "s", flatMatrix[i]);
-            if (i % aColumnSize == 0)
+            if (i != 0 && i % aColumnSize == 0)
                 System.err.println("");
+            System.err.printf("%1$-" + padding + "s", flatMatrix[i]);
+
         }
         System.err.println("");
     }
 
-    public void printMatrix(Integer[][] matrix, int padding) {
+    public static void printMatrix(Integer[][] matrix, int padding) {
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
-                System.err.printf("%1$" + padding + "s", matrix[i][j]);
+                System.err.printf("%1$-" + padding + "s", matrix[i][j]);
             }
             System.err.println("");
         }

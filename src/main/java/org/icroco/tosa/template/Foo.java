@@ -12,8 +12,8 @@ public class Foo {
         {
             Arrays.asList("orange", "jaune", "vert", "rose", "bleu", "violet");
 
-            //2,3,4,5,6,7,8,9,10,V,D,R,A.
-            //orange puis jaune puis vert puis rose puis bleu puis violet
+            // 2,3,4,5,6,7,8,9,10,V,D,R,A.
+            // orange puis jaune puis vert puis rose puis bleu puis violet
         }
 
         {

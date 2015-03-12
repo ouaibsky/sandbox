@@ -14,6 +14,6 @@ public class TheLastQuestionTest {
     public void myTest() {
         String letters = "thereisasyetinsufficientdataforameaningfulanswer";
         System.out.println("Len: "+letters.length());
-        System.out.println(letters.chars().sorted().collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append).toString());
+        //System.out.println(letters.chars().sorted().collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append).toString());
     }
 }

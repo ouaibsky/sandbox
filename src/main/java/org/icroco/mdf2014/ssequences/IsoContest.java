@@ -8,7 +8,7 @@
 package org.icroco.mdf2014.ssequences;
 
 import java.util.*;
-import java.util.stream.Collectors;
+//import java.util.stream.Collectors;
 
 
 public class IsoContest {
@@ -21,11 +21,12 @@ public class IsoContest {
         input.add(line);
         List<String> output = getSolution2(input);
 
-        output.forEach(s -> System.out.println(s));
+        for (String s: output)
+            System.out.println(s);
     }
 
     public static List<String> getSolution(List<String> aInput) {
-        List<String> list = Arrays.stream(aInput.get(0).split("(<|>)")).filter(s -> !s.trim().isEmpty()).collect(Collectors.toList());
+        List<String> list = Arrays.asList(aInput.get(0).split("(<|>)"));
         List<String> result = new ArrayList<>();
 
         Deque<String> queue = new LinkedList<>();
@@ -68,7 +69,8 @@ public class IsoContest {
     }
 
     public static List<String> getSolution2(List<String> aInput) {
-        List<String> list = Arrays.stream(aInput.get(0).split("(<|>)")).filter(s -> !s.trim().isEmpty()).collect(Collectors.toList());
+        List<String> list = Arrays.asList(aInput.get(0).split("(<|>)"));
+        //List<String> list = Arrays.stream(aInput.get(0).split("(<|>)")).filter(s -> !s.trim().isEmpty()).collect(Collectors.toList());
         String str = "";
         int pos = 0;
         try {

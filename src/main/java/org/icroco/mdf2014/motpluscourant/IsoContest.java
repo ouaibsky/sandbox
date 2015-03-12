@@ -8,8 +8,8 @@
 package org.icroco.mdf2014.motpluscourant;
 
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+//import java.util.stream.Collectors;
+//import java.util.stream.Stream;
 
 
 public class IsoContest {
@@ -20,31 +20,31 @@ public class IsoContest {
 
         Map<Integer, Map<String, Integer>> values = new HashMap<>();
 
-        while (sc.hasNextLine()) {
-            line = sc.nextLine().toLowerCase();
-            final String test = line.chars().map(c -> (Character.isLetter(c) || Character.isSpaceChar(c)) ? c : ' ').collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append).toString();
-            texts.add(test);
-            System.err.println("add new line: " + test);
-            /* Lisez les données et effectuez votre traitement */
-        }
-
-        int i = 0;
-        for (String item : texts) {
-            final String[] words = item.split("\\s+");
-            System.err.println("words: " + Arrays.toString(words));
-            Map<String, Integer> wordCount = Arrays.asList(words).stream().filter(w -> w.length() > 1).collect(Collectors.groupingBy(e -> e, Collectors.summingInt(e -> 1)));
-            values.put(i, wordCount);
-            wordCount.forEach((key, value) -> {
-                System.err.println("Key: " + key + "\t" + " Value: " + value);
-            });
-            i++;
-        }
-
-        //remove word presents in all lines
-        Map<String, Integer> first = values.get(0);
-        List<String> toBeTested = new ArrayList<>();
-        toBeTested.addAll(first.keySet());
-        toBeTested.stream().filter(word -> isPresent(word, values)).forEach(word -> remove(word, values));
+//        while (sc.hasNextLine()) {
+//            line = sc.nextLine().toLowerCase();
+//            final String test = line.chars().map(c -> (Character.isLetter(c) || Character.isSpaceChar(c)) ? c : ' ').collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append).toString();
+//            texts.add(test);
+//            System.err.println("add new line: " + test);
+//            /* Lisez les données et effectuez votre traitement */
+//        }
+//
+//        int i = 0;
+//        for (String item : texts) {
+//            final String[] words = item.split("\\s+");
+//            System.err.println("words: " + Arrays.toString(words));
+//            Map<String, Integer> wordCount = Arrays.asList(words).stream().filter(w -> w.length() > 1).collect(Collectors.groupingBy(e -> e, Collectors.summingInt(e -> 1)));
+//            values.put(i, wordCount);
+//            wordCount.forEach((key, value) -> {
+//                System.err.println("Key: " + key + "\t" + " Value: " + value);
+//            });
+//            i++;
+//        }
+//
+//        //remove word presents in all lines
+//        Map<String, Integer> first = values.get(0);
+//        List<String> toBeTested = new ArrayList<>();
+//        toBeTested.addAll(first.keySet());
+//        toBeTested.stream().filter(word -> isPresent(word, values)).forEach(word -> remove(word, values));
 
         // consolidate
         Map<String, Integer> all = new HashMap<>();
@@ -68,13 +68,13 @@ public class IsoContest {
             }
         };
 
-        all.entrySet().stream().sorted(comp).forEach((entry) -> {
-            System.err.println("All: " + entry.getValue() + " " + entry.getKey());
-        });
-
-        all.entrySet().stream().sorted(comp).limit(3).forEach((entry) -> {
-            System.out.println(entry.getValue() + " " + entry.getKey());
-        });
+//        all.entrySet().stream().sorted(comp).forEach((entry) -> {
+//            System.err.println("All: " + entry.getValue() + " " + entry.getKey());
+//        });
+//
+//        all.entrySet().stream().sorted(comp).limit(3).forEach((entry) -> {
+//            System.out.println(entry.getValue() + " " + entry.getKey());
+//        });
 
 	/* Vous pouvez aussi effectuer votre traitement une fois que vous avez lu toutes les données.*/
     }

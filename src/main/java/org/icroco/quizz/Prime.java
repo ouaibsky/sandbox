@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.IntStream;
-import java.util.stream.LongStream;
+//import java.util.stream.IntStream;
+//import java.util.stream.LongStream;
 
 /**
  * Created by christophe on 02/02/15.
@@ -55,10 +55,10 @@ public class Prime {
 
 
     public static void main(String[] args) {
-        List<Long> values = findPrimeNumber(10001);
+      //  List<Long> values = findPrimeNumber(10001);
 
-        System.err.println("size: "+values.size());
-        System.out.println("10001: "+values.get(values.size()-1));
+      //  System.err.println("size: "+values.size());
+      //  System.out.println("10001: "+values.get(values.size()-1));
     }
 
 

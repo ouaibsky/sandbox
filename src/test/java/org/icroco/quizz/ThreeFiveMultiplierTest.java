@@ -6,6 +6,6 @@ public class ThreeFiveMultiplierTest {
 
 
     public void sumTreeOrFiveDivider() throws Exception {
-        System.out.println(Prime.findPrimeNumber(600851475143L));
+        //System.out.println(Prime.findPrimeNumber(600851475143L));
     }
 }

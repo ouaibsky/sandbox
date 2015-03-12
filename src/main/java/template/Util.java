@@ -136,16 +136,7 @@ public class Util {
 //        return result;
 //    }
 
-    public static void printMatrix(Integer[] flatMatrix, int aColumnSize, int padding) {
-        for (int i = 0; i < flatMatrix.length; i++) {
-            if (i != 0 && i % aColumnSize == 0)
-                IsoContestBase.localEcho("");
-                System.err.println("");
-            System.err.printf("%1$-" + padding + "s", flatMatrix[i]);
 
-        }
-        System.err.println("");
-    }
 
     public static void printMatrix(Integer[][] matrix, int padding) {
         for (int i = 0; i < matrix.length; i++) {

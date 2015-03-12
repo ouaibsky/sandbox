@@ -1,6 +1,7 @@
 package org.icroco.mdf2014.ssequences;
 
-import org.icroco.util.StringUtil8;
+import org.icroco.util.StringUtil7;
+//import org.icroco.util.StringUtil8;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -32,15 +33,16 @@ public class IsoContestBaseTest {
 
     public static void executeAndCompare(final String aInput, final String aExpectedOutput) throws URISyntaxException, IOException {
             System.err.println("** Input *");
-            List<String> input = StringUtil8.readFile(IsoContest.class.getResource(aInput).toURI());
+            List<String> input = StringUtil7.readFile(IsoContest.class.getResource(aInput).toURI());
             System.err.println("");
             System.err.println("** Expected *");
-            List<String> expectedOutput = StringUtil8.readFile(IsoContest.class.getResource(aExpectedOutput).toURI());
+            List<String> expectedOutput = StringUtil7.readFile(IsoContest.class.getResource(aExpectedOutput).toURI());
             System.err.println("");
             System.err.println("** Given *");
             List<String> output = IsoContest.getSolution2(input);
 
-            output.forEach(s -> System.out.println(s));
+        for (String s: output)
+            System.out.println(s);
 
             System.err.println("");
             System.err.println("** End *");

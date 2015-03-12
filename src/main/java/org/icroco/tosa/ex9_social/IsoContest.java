@@ -1,7 +1,6 @@
 package org.icroco.tosa.ex9_social;
 
 
-import sun.plugin.viewer.MNetscapePluginObject;
 
 import java.util.*;
 

@@ -6,6 +6,7 @@ import org.icroco.util.StringUtil7;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -35,7 +36,7 @@ class CheckOutput {
         System.err.println("** Given *");
         System.err.flush();
 
-        List<String> output = IsoContest.getSolution(aInput);
+        List<String> output = Collections.emptyList();
 
         for (String s: output)
             System.out.println(s);

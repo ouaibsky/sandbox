@@ -100,19 +100,19 @@ public class Util {
     }
 
 
-    public static Integer[] extractFlatMatrix(List<String> aInput, int aRowSize) {
-        Integer[] result = new Integer[aRowSize * aInput.size()];
+    public static Integer[] extractFlatMatrix(List<String> aInput, int xSize) {
+        Integer[] result = new Integer[xSize * aInput.size()];
         for (int i = 0; i < aInput.size(); i++) {
             String[] numbers = aInput.get(i).split("\\s+");
             for (int j = 0; j < numbers.length; j++) {
-                result[i*aRowSize + j] = Integer.parseInt(numbers[j]);
+                result[i*xSize + j] = Integer.parseInt(numbers[j]);
             }
         }
         return result;
     }
 
-    public static Integer[][] extractMatrix(List<String> aInput, int aRowSize) {
-        Integer[][] result = new Integer[aInput.size()][aRowSize];
+    public static Integer[][] extractMatrix(List<String> aInput, int xSize) {
+        Integer[][] result = new Integer[aInput.size()][xSize];
 
         for (int i = 0; i < aInput.size(); i++) {
             String[] numbers = aInput.get(i).split("\\s+");
@@ -139,6 +139,7 @@ public class Util {
     public static void printMatrix(Integer[] flatMatrix, int aColumnSize, int padding) {
         for (int i = 0; i < flatMatrix.length; i++) {
             if (i != 0 && i % aColumnSize == 0)
+                IsoContestBase.localEcho("");
                 System.err.println("");
             System.err.printf("%1$-" + padding + "s", flatMatrix[i]);
 

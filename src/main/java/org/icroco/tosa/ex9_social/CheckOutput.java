@@ -1,6 +1,8 @@
 package org.icroco.tosa.ex9_social;
 
+
 import org.icroco.util.StringUtil7;
+
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -22,7 +24,7 @@ class CheckOutput {
 
         System.err.println("** Input *");
         for (String s: aInput)
-            IsoContestBase.localEcho(s);
+            org.icroco.tosa.ex9_social.IsoContestBase.localEcho(s);
         System.err.println("");
         System.err.println("** Expected *");
         for (String s: aExpectedOutput)

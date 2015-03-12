@@ -1,6 +1,8 @@
 package org.icroco.tosa.ex9_social;
 
 
+import sun.plugin.viewer.MNetscapePluginObject;
+
 import java.util.*;
 
 
@@ -14,11 +16,11 @@ public class IsoContest {
         LinkedList<String> input = new LinkedList<>();
         Scanner sc = new Scanner(System.in);
 
-        line = sc.nextLine();       // TODO check if applicable
-        input.add(line);            // TODO check if applicable
-
-        while (sc.hasNextLine())     // TODO check if applicable
-            input.add(sc.nextLine());
+        while (sc.hasNextLine()) {
+            line = sc.nextLine(); // TODO check if applicable
+            input.add(line);
+            //System.err.println(line);
+        }
 
         List<String> output = getSolution(input);
 
@@ -26,17 +28,79 @@ public class IsoContest {
             System.out.println(s);
     }
 
+    static final class People {
+        String name;
+
+        public People(String name) {
+            this.name = name;
+        }
+
+        LinkedList<String> refused = new LinkedList<>();
+        LinkedList<People> children = new LinkedList<>();
+
+        public Set<String> findFriend(int distance) {
+            Set<String> s =  new TreeSet<>();
+            s.add(name);
+            if (distance == 0) {
+                return s;
+            }
+
+            for (People p: children) {
+                Set<String> amis = p.findFriend(distance - 1);
+                for (String a: amis) {
+                    if (!refused.contains(a)) {
+                        s.add(a);
+                    }
+                }
+            }
+            return s;
+        }
+    }
+
     static List<String> getSolution(LinkedList<String> aInput) {
         LinkedList<String> output = new LinkedList<>();
 
-        String first = aInput.removeFirst(); // TODO if integer ...
-
-        for (String word : aInput) {  // TODO
-
+        Map<String, People> maps = new HashMap<>();
+        while(aInput.size() > 1) {
+            IsoContestBase.localEcho("***********");
+            IsoContestBase.localEcho("input: "+aInput.getFirst());
+            String[] A = aInput.removeFirst().split("\\s+");
+            People P = maps.get(A[0]);
+            if (P == null) {
+                P = new People(A[0]);
+                maps.put(A[0], P);
+            }
+            if (A[1].equals("-")) {
+                P.refused.add(A[2]);
+            } else {
+                People p2 = maps.get(A[2]);
+                if (p2 == null) {
+                    p2 = new People(A[2]);
+                    maps.put(A[2], p2);
+                }
+                P.children.add(p2);
+            }
         }
 
+        String[] A = aInput.removeFirst().split("\\s+");
+        IsoContestBase.localEcho("question: "+Arrays.toString(A));
+        People start = maps.get(A[0]);
+        int distance = Integer.parseInt(A[2]);
+
+        Set<String> res = start.findFriend(distance);
+
+        // concat
+        String str = "";
+        for (String s : res)
+            str += s + " ";
+        str = str.trim();
+        output.add(str);
+
+
+//        output.addAll(res);
         return output;
     }
+
 
 
     final static LinkedList<String> splitSpace(final String aLine) {

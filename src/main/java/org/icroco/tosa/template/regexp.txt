@@ -1,0 +1,6 @@
+#separer par des virgule
+(\d+|\w+)\s*([,])?
+"$1"$2
+
+(\w+) *
+"$1",

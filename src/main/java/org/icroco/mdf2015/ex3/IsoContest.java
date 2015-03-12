@@ -1,9 +1,6 @@
 package org.icroco.mdf2015.ex3;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 
 /**
@@ -31,13 +28,50 @@ public class IsoContest {
 
         int size = Integer.parseInt(aInput.removeFirst().trim()); // TODO
 
+        String[] SA = aInput.removeFirst().split(";");
+        Set<String> country = new HashSet<>();
+        Set<String> idDoublon = new HashSet<>();
+        int nbDoublon = 0;
+        int nbBadPhone = 0;
+        int nbHorsZone = 0;
+
+        country.addAll(Arrays.asList(SA));
+
+
+
         while(aInput.size() != 0) {
-            aInput.removeFirst();   // TODO
+            String[] item = aInput.removeFirst().split(";");   // TODO
+            String zone = item[4];
+            String id = item[0]+";"+item[1]+";"+item[2];
+            String phone = item[3];
+            if (idDoublon.contains(id)) {
+                nbDoublon++;
+                continue;
+            }
+            else
+                idDoublon.add(id);
 
+            if (!country.contains(zone)) {
+                nbHorsZone++;
+            }
 
+            if (!phone.startsWith("+"))
+                nbBadPhone++;
+            else {
+
+                String[] phoneItems = phone.substring(1).split("-");
+                if (phoneItems.length > 2)
+                    nbBadPhone++;
+                else {
+                    if (phoneItems[0].length() ==0 || phoneItems[0].length() > 3)
+                        nbBadPhone++;
+                    else if (phoneItems[1].length() < 9 || phoneItems[1].length() > 11)
+                    nbBadPhone++;
+                }
+            }
         }
 
-        // TODO Fill input
+        output.add(nbDoublon+" "+nbBadPhone+" "+nbHorsZone);
         return output;
     }
 

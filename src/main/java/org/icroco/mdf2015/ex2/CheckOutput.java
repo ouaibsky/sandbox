@@ -36,7 +36,7 @@ class CheckOutput {
         System.err.flush();
 
         for (String s: output)
-            System.out.println(s);
+            System.err.println(s);
         System.out.flush();
 
         System.err.println("");
@@ -50,7 +50,7 @@ class CheckOutput {
         //executeAndCompare(new LinkedList(Arrays.asList("1 2 9 A B 11 3 4 5")), Arrays.asList("9 A B"));
         executeAndCompareFromFile("input1.txt", "output1.txt");
         executeAndCompareFromFile("input2.txt", "output2.txt");
-        executeAndCompareFromFile("input3.txt", "output3.txt");
+        //executeAndCompareFromFile("input3.txt", "output3.txt");
     }
 
 

@@ -1,0 +1,12 @@
+10
+france;irlande;angleterre;belgique;suisse;espagne;allemagne;autriche;etas-unis
+ryan;jones;scelerisque;+33-151065426;angleterre
+avram;valentine;sodales;+33-151065426;autriche
+avram;valentine;sodales;+33-151065426;autriche
+bruce;gallegos;sodales;+1-8547412367;irlande
+bruce;gallegos;sodales;+1-8547412367;irlande
+bruce;jones;arcu;-33-171357826;italie
+bruce;pitts;convallis;+1-8547412367;angleterre
+priscilla;norris;ultrices;+44-0876496426;belgique
+bruce;copeland;scelerisque;+44-0876496426;irlande
+priscilla;copeland;scelerisque;+33-151065426;suisse

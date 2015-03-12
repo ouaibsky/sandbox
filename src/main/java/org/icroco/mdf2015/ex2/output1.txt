@@ -1,0 +1,5 @@
+economie 14
+techno 12
+sport 11
+musique 10
+cinema 8

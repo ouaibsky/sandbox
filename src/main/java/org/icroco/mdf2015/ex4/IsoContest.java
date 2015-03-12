@@ -1,9 +1,6 @@
 package org.icroco.mdf2015.ex4;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 
 /**
@@ -30,15 +27,52 @@ public class IsoContest {
         List<String> output = new ArrayList<>();
 
         int size = Integer.parseInt(aInput.removeFirst().trim()); // TODO
+        LinkedList<String> SL = new LinkedList<>();
 
+        String res = null;
+        boolean first = true;
         while(aInput.size() != 0) {
-            aInput.removeFirst();   // TODO
 
+           String hash = aInput.removeFirst();
+            //IsoContestBase.localEcho(hash);
+            if (SL.size() >= 60)
+            {
+                if (first)
+                    first = false;
+                else
+                    SL.removeFirst();
+                SL.add(hash);
+                res = getfirsTopic(SL);
+                if (res != null)
+                    break;
+            }
+            else
+                SL.add(hash);
+        }
+        if (!SL.isEmpty())
+            res = getfirsTopic(SL);
 
+        String KO = "Pas de trending topic";
+        output.add(res == null ? KO : res);
+        IsoContestBase.localEcho("*****");
+        return output;
+    }
+
+    private static String getfirsTopic(LinkedList<String> aQueue)  {
+        Map<String, Integer> maps = new HashMap<>();
+        for(String s: aQueue) {
+            if (maps.containsKey(s))
+                maps.put(s, maps.get(s)+1);
+            else
+                maps.put(s, 1);
         }
 
-        // TODO Fill input
-        return output;
+        for (String s: aQueue) {
+            if (maps.get(s) >= 40)
+                return s;
+        }
+
+        return null;
     }
 
     public  static Integer[] toIntArray(String line) {

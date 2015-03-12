@@ -1,0 +1,5 @@
+international 19
+culture 15
+planete 13
+politique 12
+education 9

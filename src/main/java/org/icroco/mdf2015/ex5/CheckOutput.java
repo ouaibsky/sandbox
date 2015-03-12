@@ -36,8 +36,8 @@ class CheckOutput {
         System.err.flush();
 
         for (String s: output)
-            System.out.println(s);
-        System.out.flush();
+            System.err.println(s);
+        System.err.flush();
 
         System.err.println("");
         System.err.println("** End *");

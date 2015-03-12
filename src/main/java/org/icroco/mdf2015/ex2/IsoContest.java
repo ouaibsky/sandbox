@@ -1,9 +1,6 @@
 package org.icroco.mdf2015.ex2;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 
 /**
@@ -30,11 +27,29 @@ public class IsoContest {
         List<String> output = new ArrayList<>();
 
         int size = Integer.parseInt(aInput.removeFirst().trim()); // TODO
-
+        Map<String, Integer> count = new HashMap<>();
         while(aInput.size() != 0) {
-            aInput.removeFirst();   // TODO
+            String word = aInput.removeFirst();   // TODO
+            if (count.containsKey(word))
+                count.put(word, count.get(word)+1);
+            else
+                count.put(word, 1);
+        }
+
+        Set<Map.Entry<String, Integer>> entries = count.entrySet();
+        List<Map.Entry<String, Integer>> list = new ArrayList<>();
+        list.addAll(entries);
+        Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
+            @Override
+            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                return o2.getValue() - o1.getValue();
+            }
+        });
 
 
+        for (int i = 0; i < 5; i++) {
+            Map.Entry<String, Integer> item = list.get(i);
+            output.add(item.getKey()+" "+item.getValue());
         }
 
         // TODO Fill input

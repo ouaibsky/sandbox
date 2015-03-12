@@ -29,15 +29,19 @@ public class IsoContest {
     static List<String> getSolution(LinkedList<String> aInput) {
         List<String> output = new ArrayList<>();
 
-        int size = Integer.parseInt(aInput.removeFirst().trim()); // TODO
-
-        while(aInput.size() != 0) {
-            aInput.removeFirst();   // TODO
+        int amount = Integer.parseInt(aInput.removeFirst().trim());
+        int nbTour = Integer.parseInt(aInput.removeFirst().trim());
 
 
+        while(aInput.size() != 0) { // TODO
+            String[] SA = aInput.removeFirst().split("\\s+");
+            int X = Integer.parseInt(SA[0]);
+            int Y = Integer.parseInt(SA[1]);
+            amount = amount - X + Y;
         }
 
-        // TODO Fill input
+
+        output.add(""+amount);
         return output;
     }
 

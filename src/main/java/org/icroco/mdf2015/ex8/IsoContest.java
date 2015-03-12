@@ -41,7 +41,14 @@ public class IsoContest {
         return output;
     }
 
+    public  static Integer[] toIntArray(String line) {
+        String[] SA = line.split("\\s+");
+        Integer[]IA = new Integer[SA.length];
+        for (int i = 0 ; i < SA.length ; i++)
+            IA[i] = Integer.parseInt(SA[i]);
 
+        return IA;
+    }
 
 }
 

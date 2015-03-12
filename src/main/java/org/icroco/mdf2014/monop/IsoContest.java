@@ -8,9 +8,9 @@
 package org.icroco.mdf2014.monop;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
-import static org.icroco.util.StringUtil8.convertArray;
 
 public class IsoContest {
     public static void main(String[] argv) throws Exception {
@@ -21,12 +21,18 @@ public class IsoContest {
         int amount = sc.nextInt();
         sc.nextLine();
         System.err.println("amount: " + amount);
-        String sLine[] = sc.nextLine().split("\\s+");
-        Integer [] cashOut = convertArray(sLine, Integer::parseInt, Integer[]::new);
+
+
+        Integer [] cashOut = toIntArray(sc.nextLine());
         System.err.println("cashOut: " + Arrays.toString(cashOut));
-        sLine = sc.nextLine().split("\\s+");
-        Integer [] game = convertArray(sLine, Integer::parseInt, Integer[]::new);
+
+        Integer [] game =  toIntArray(sc.nextLine());
+
         System.err.println("game: " + Arrays.toString(game));
+
+
+        String[] SA = "fdfdd".split("\\s+");
+
 
         if (game.length % 2 != 0)
             throw new IllegalArgumentException("Nombre impairs: "+game);
@@ -46,10 +52,33 @@ public class IsoContest {
             }
         }
 
+
+
+
         //System.out.println(colors[pos % 48 % 6]);
 	/* Vous pouvez aussi effectuer votre traitement une fois que vous avez lu toutes les données.*/
     }
 
+    public  static Integer[] toIntArray(String line) {
+        String[] SA = line.split("\\s+");
+        Integer[]IA = new Integer[SA.length];
+        for (int i = 0 ; i < SA.length ; i++)
+            IA[i] = Integer.parseInt(SA[i]);
+
+        return IA;
+    }
+
+    public static Integer[][] extractMatrix(List<String> aInput, int xSize) {
+        Integer[][] result = new Integer[aInput.size()][xSize];
+
+        for (int i = 0; i < aInput.size(); i++) {
+            String[] numbers = aInput.get(i).split("\\s+");
+            for (int j = 0; j < numbers.length; j++) {
+                result[i][j] = Integer.parseInt(numbers[j]);
+            }
+        }
+        return result;
+    }
 
 }
 /* 

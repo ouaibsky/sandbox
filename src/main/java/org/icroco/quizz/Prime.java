@@ -41,17 +41,17 @@ public class Prime {
     }
 
 
-    public static List<Long> findPrimeNumber(long aLimit) {
-        final List<Long> primes = new ArrayList(10000000);
-        LongStream.iterate(2, i -> i + 1).
-                filter(i -> {
-                    for (long prime : primes)
-                        if (i % prime == 0)
-                            return false;
-                    return true;
-                }).limit(aLimit).forEach(primes::add);
-        return primes;
-    }
+//    public static List<Long> findPrimeNumber(long aLimit) {
+//        final List<Long> primes = new ArrayList(10000000);
+//        LongStream.iterate(2, i -> i + 1).
+//                filter(i -> {
+//                    for (long prime : primes)
+//                        if (i % prime == 0)
+//                            return false;
+//                    return true;
+//                }).limit(aLimit).forEach(primes::add);
+//        return primes;
+//    }
 
 
     public static void main(String[] args) {

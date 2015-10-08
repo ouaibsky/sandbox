@@ -3,8 +3,13 @@ package org.icroco.mdf2015.ex1;
 
 import org.icroco.util.StringUtil7;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -15,10 +20,25 @@ import java.util.List;
 class CheckOutput {
 
     public static void executeAndCompareFromFile(final String aInput, final String aExpectedOutput) throws URISyntaxException, IOException {
-        LinkedList<String> input = StringUtil7.readFile(CheckOutput.class.getResource(aInput).toURI());
-        List<String> expectedOutput = StringUtil7.readFile(CheckOutput.class.getResource(aExpectedOutput).toURI());
+        URL inputU = CheckOutput.class.getResource(aInput);
+        URL outputU = CheckOutput.class.getResource(aExpectedOutput);
+
+        if (inputU == null) {
+            System.err.println("Input not found: "+aInput);
+            return;
+        }
+        if (outputU == null) {
+            System.err.println("Output not found: "+aExpectedOutput);
+            return;
+        }
+
+        System.err.println("--Start Input: "+aInput+", output: "+aExpectedOutput);
+        LinkedList<String> input = StringUtil7.readFile(inputU.toURI());
+        List<String> expectedOutput = StringUtil7.readFile(outputU.toURI());
 
         executeAndCompare(input, expectedOutput);
+        System.err.println("--End");
+        System.err.println("");
     }
 
     public static void executeAndCompare(final LinkedList<String> aInput, final List<String> aExpectedOutput) throws URISyntaxException, IOException {
@@ -48,10 +68,32 @@ class CheckOutput {
 
     public static void main(String[] args) throws IOException, URISyntaxException {
         //executeAndCompare(new LinkedList(Arrays.asList("1 2 9 A B 11 3 4 5")), Arrays.asList("9 A B"));
-        executeAndCompareFromFile("input1.txt", "output1.txt");
-        executeAndCompareFromFile("input2.txt", "output2.txt");
+        for (int i = 1; i < 5; i++) {
+            executeAndCompareFromFile("input"+i+".txt", "output"+i+".txt");
+        }
         //executeAndCompareFromFile("input3.txt", "output3.txt");
-    }
+//        try (Stream<Path> stream = Files.list(Paths.get(""))) {
+//            String joined = stream
+//                    .map(String::valueOf)
+//                    .filter(path -> !path.startsWith("."))
+//                    .sorted()
+//                    .collect(Collectors.joining("; "));
+//            System.out.println("List: " + joined);
+//        }
+
+
+//        File f = new File(); // current directory
+//
+//        File[] files = f.listFiles();
+//        for (File file : files) {
+//            if (file.isDirectory()) {
+//                System.out.print("directory:");
+//            } else {
+//                System.out.print("     file:");
+//            }
+//            System.out.println(file.getCanonicalPath());
+//        }
+   }
 
 
 }

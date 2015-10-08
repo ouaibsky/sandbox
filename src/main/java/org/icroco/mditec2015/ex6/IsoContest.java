@@ -29,15 +29,38 @@ public class IsoContest {
     static List<String> getSolution(LinkedList<String> aInput) {
         List<String> output = new ArrayList<>();
 
-        int size = Integer.parseInt(aInput.removeFirst().trim()); // TODO
+        String[] values = aInput.removeFirst().trim().split(" ");
+        int W = Integer.valueOf(values[0]);
+        int L = Integer.valueOf(values[1]);
+        int H = Integer.valueOf(values[2]);
 
+        Integer matrix[][] = new Integer[W][L];
+        int i = 0;
         while(aInput.size() != 0) {
-            aInput.removeFirst();   // TODO
+            matrix[i] = toIntArray(aInput.removeFirst().trim());   // TODO
+            i++;
+        }
 
+        String res = "NO";
+        int j = 0;
+        int k = 0;
+        for (; j < matrix.length; j++) {
+            for (; k < matrix[j].length; k++) {
+                if (matrix[j][k] < H) {
+                    j++;
+                    break;
+                }
+                //System.out.print(matrix[j][k]+" ");
+            }
+            //System.out.println("");
 
         }
 
-        // TODO Fill input
+        if ((j == matrix.length) && (k == matrix[0].length)) {
+            res = "YES";
+        }
+
+        output.add(res);
         return output;
     }
 

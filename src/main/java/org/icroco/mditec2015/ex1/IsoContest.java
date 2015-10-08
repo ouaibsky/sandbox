@@ -22,22 +22,25 @@ public class IsoContest {
 
         List<String> output = getSolution(input);
 
-        for (String s: output)
+        for (String s: output) {
             System.out.println(s);
+        }
     }
 
     static List<String> getSolution(LinkedList<String> aInput) {
         List<String> output = new ArrayList<>();
 
-        int size = Integer.parseInt(aInput.removeFirst().trim()); // TODO
+        // TOO: Assume first line is size, if not remove
+        int initialBalance = Integer.parseInt(aInput.removeFirst().trim());
+        int nbInst = Integer.parseInt(aInput.removeFirst().trim());
 
         while(aInput.size() != 0) {
-            aInput.removeFirst();   // TODO
-
+            int inst = Integer.parseInt(aInput.removeFirst().trim());
+            initialBalance = initialBalance + inst;
 
         }
 
-        // TODO Fill input
+        output.add(""+initialBalance);
         return output;
     }
 

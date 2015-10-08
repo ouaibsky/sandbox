@@ -29,15 +29,35 @@ public class IsoContest {
     static List<String> getSolution(LinkedList<String> aInput) {
         List<String> output = new ArrayList<>();
 
-        int size = Integer.parseInt(aInput.removeFirst().trim()); // TODO
+        int size = Integer.parseInt(aInput.removeFirst().trim());
+        int nbValidCard = 0;
 
         while(aInput.size() != 0) {
-            aInput.removeFirst();   // TODO
+            String creditCard = aInput.removeFirst().trim();
+            String newwCard = "";
+            if (creditCard.length() != 16)
+                continue;
 
+
+            char[] array = creditCard.toCharArray();
+            int luneKey = Integer.valueOf(""+creditCard.charAt(15));
+            int total = 0;
+
+           for (int i = 0 ; i < 15 ; i++) {
+              int v = Integer.valueOf(""+array[i]);
+              int v2 = v * (i%2==0 ? 2 : 1);
+              if (v2 > 9)
+                  v2 = v2 - 9;
+              newwCard += ""+v2;
+              total+=v2;
+          }
+            int verif = total%10 == 0 ? 0 : 10 - (total%10);
+            if (luneKey == verif)
+                nbValidCard++;
 
         }
 
-        // TODO Fill input
+        output.add(""+nbValidCard);
         return output;
     }
 

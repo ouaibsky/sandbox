@@ -51,7 +51,7 @@ class CheckOutput {
         System.err.flush();
 
         for (String s: output)
-            System.out.println(s);
+            System.err.println(s);
         System.out.flush();
 
         System.err.println("");
@@ -63,7 +63,7 @@ class CheckOutput {
 
     public static void main(String[] args) throws IOException, URISyntaxException {
         //executeAndCompare(new LinkedList(Arrays.asList("1 2 9 A B 11 3 4 5")), Arrays.asList("9 A B"));
-        for (int i = 1; i < 10; i++) {
+        for (int i = 2; i < 10; i++) {
             executeAndCompareFromFile("input"+i+".txt", "output"+i+".txt");
         }
     }

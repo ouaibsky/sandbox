@@ -1,9 +1,6 @@
 package org.icroco.mditec2015.ex5;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 
 /**
@@ -26,18 +23,66 @@ public class IsoContest {
             System.out.println(s);
     }
 
+    static class Dispenser implements Comparable<Dispenser>
+    {
+        String id;
+        int amount;
+
+        public Dispenser(String id, int amount) {
+            this.id = id;
+            this.amount = amount;
+        }
+
+
+        @Override
+        public int compareTo(Dispenser o) {
+            if (o.amount == amount) {
+                return id.compareTo(o.id);
+            }
+            if (o.amount > amount)
+                return 1;
+            else return -1;
+        }
+    }
+
     static List<String> getSolution(LinkedList<String> aInput) {
         List<String> output = new ArrayList<>();
 
-        int size = Integer.parseInt(aInput.removeFirst().trim()); // TODO
+        int size = Integer.parseInt(aInput.removeFirst().trim()); // TRIM
 
+        List<Dispenser> dispensers = new ArrayList<Dispenser>();
         while(aInput.size() != 0) {
-            aInput.removeFirst();   // TODO
-
+            String[] values = aInput.removeFirst().trim().split(" ");
+            String id = values[0];
+            int amount = Integer.valueOf(values[1]);
+            Dispenser disp = null;
+            for (Dispenser d : dispensers) {
+                if (d.id.equals(id)) {
+                    disp = d;
+                    break;
+                }
+            }
+            if (disp == null) {
+                dispensers.add(new Dispenser(id, amount));
+            }
+            else {
+                disp.amount+=amount;
+            }
 
         }
 
-        // TODO Fill input
+        Collections.sort(dispensers);
+
+        String res = "";
+        int i = 0;
+        for (Dispenser d: dispensers) {
+            res+=d.id+" ";
+            i++;
+            if (i == 10)
+                break;
+        }
+
+        output.add(res.trim());
         return output;
     }
 

@@ -1,9 +1,6 @@
 package org.icroco.mditec2015.ex4;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 
 /**
@@ -29,15 +26,41 @@ public class IsoContest {
     static List<String> getSolution(LinkedList<String> aInput) {
         List<String> output = new ArrayList<>();
 
-        int size = Integer.parseInt(aInput.removeFirst().trim()); // TODO
+        int amountToDeliver = Integer.parseInt(aInput.removeFirst().trim());
+
+        aInput.removeFirst(); // bypass
+
+//        String[] types = aInput.removeFirst().trim().split(" ");
+//        Integer[] iType = new Integer[types.length];
+//        for (int i = 0; i < types.length; i++) {
+//            iType[i] = Integer.valueOf(types[i]);
+//        }
+
+        List<Integer> nTypes = new ArrayList<Integer>();
+
+
 
         while(aInput.size() != 0) {
-            aInput.removeFirst();   // TODO
+            nTypes.add(Integer.parseInt(aInput.removeFirst().trim()));
+
+
+        }
+        Collections.sort(nTypes, Collections.reverseOrder());
+
+        int remaining = amountToDeliver;
+        String res = "";
+        for (Integer note: nTypes)
+        {
+            int nb = remaining / note;
+            if (nb > 0) {
+                res+= ""+nb+" "+note+" ";
+                remaining = remaining%note;
+            }
 
 
         }
 
-        // TODO Fill input
+        output.add(res.trim());
         return output;
     }
 

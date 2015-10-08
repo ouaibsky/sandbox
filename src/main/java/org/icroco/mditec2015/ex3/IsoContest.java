@@ -1,9 +1,6 @@
 package org.icroco.mditec2015.ex3;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 
 /**
@@ -29,15 +26,56 @@ public class IsoContest {
     static List<String> getSolution(LinkedList<String> aInput) {
         List<String> output = new ArrayList<>();
 
-        int size = Integer.parseInt(aInput.removeFirst().trim()); // TODO
+        int nbOfPeople = Integer.parseInt(aInput.removeFirst().trim());
+
+
+        Map<Integer, Integer> hours = new HashMap<Integer, Integer>();
+        for (int i = 0 ; i < 24 ; i++){
+            hours.put(i, 0);
+        }
 
         while(aInput.size() != 0) {
-            aInput.removeFirst();   // TODO
-
+            String[] startEnd = aInput.removeFirst().trim().split(" ");
+            if (startEnd.length != 2) {
+                continue;
+            }
+            int start = Integer.valueOf(startEnd[0]);
+            int end = Integer.valueOf(startEnd[1]);
+            for (int i = start; i < end; i++) {
+                hours.put(i, hours.get(i)+1);
+            }
 
         }
 
+//        TreeMap<Integer, Integer> sortedMap = new TreeMap<Integer, Integer>(new ValueComparator(hours));
+//        for (Map.Entry<Integer, Integer> entry : sortedMap.entrySet()) {
+//            System.out.println("hours: "+entry.getKey()+" value: "+entry.getValue());
+//        }
+
+        int hourMax = 0;
+        int peopleMax = 0;
+        List<Integer> topH = new ArrayList<Integer>();
+        for (int i = 0 ; i < 24 ; i++){
+            if (hours.get(i) > peopleMax)
+            {
+                hourMax = i;
+                peopleMax = hours.get(i);
+                topH.clear();
+                topH.add(hourMax);
+            }
+            else if (hours.get(i) == peopleMax)
+            {
+                topH.add(i);
+            }
+        }
+
+        Collections.sort(topH);
+        String res = "";
+        for (Integer i : topH) {
+            res = res + " " +i;
+        }
         // TODO Fill input
+        output.add(res.trim());
         return output;
     }
 
@@ -49,6 +87,24 @@ public class IsoContest {
             IA[i] = Integer.parseInt(SA[i]);
 
         return IA;
+    }
+
+    static class ValueComparator implements Comparator<Integer> {
+        Map<Integer, Integer> base;
+
+        public ValueComparator(Map<Integer, Integer> base) {
+            this.base = base;
+        }
+
+        // Note: this comparator imposes orderings that are inconsistent with
+        // equals.
+        public int compare(Integer a, Integer b) {
+            if (base.get(a) >= base.get(b)) {
+                return -1;
+            } else {
+                return 1;
+            } // returning 0 would merge keys
+        }
     }
 }
 

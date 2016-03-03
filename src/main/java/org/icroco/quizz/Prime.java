@@ -58,7 +58,7 @@ public class Prime {
       //  List<Long> values = findPrimeNumber(10001);
 
       //  System.err.println("size: "+values.size());
-      //  System.out.println("10001: "+values.get(values.size()-1));
+      //  System.out.println("10001: "+values.getValue(values.size()-1));
     }
 
 

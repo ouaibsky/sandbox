@@ -41,7 +41,7 @@ public class IsoContest {
 //        }
 //
 //        //remove word presents in all lines
-//        Map<String, Integer> first = values.get(0);
+//        Map<String, Integer> first = values.getValue(0);
 //        List<String> toBeTested = new ArrayList<>();
 //        toBeTested.addAll(first.keySet());
 //        toBeTested.stream().filter(word -> isPresent(word, values)).forEach(word -> remove(word, values));

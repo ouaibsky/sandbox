@@ -27,12 +27,12 @@ class CheckOutput {
             return;
         }
 
-        System.err.println("--Start Input: "+aInput+", output: "+aExpectedOutput);
+        System.err.println("--> Start Input: "+aInput+", output: "+aExpectedOutput);
         LinkedList<String> input = StringUtil7.readFile(inputU.toURI());
         List<String> expectedOutput = StringUtil7.readFile(outputU.toURI());
 
         executeAndCompare(input, expectedOutput);
-        System.err.println("--End");
+        System.err.println("--< End");
         System.err.println("");
     }
 

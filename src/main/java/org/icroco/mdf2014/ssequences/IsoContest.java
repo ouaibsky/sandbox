@@ -70,7 +70,7 @@ public class IsoContest {
 
     public static List<String> getSolution2(List<String> aInput) {
         List<String> list = Arrays.asList(aInput.get(0).split("(<|>)"));
-        //List<String> list = Arrays.stream(aInput.get(0).split("(<|>)")).filter(s -> !s.trim().isEmpty()).collect(Collectors.toList());
+        //List<String> list = Arrays.stream(aInput.getValue(0).split("(<|>)")).filter(s -> !s.trim().isEmpty()).collect(Collectors.toList());
         String str = "";
         int pos = 0;
         try {
@@ -109,7 +109,7 @@ public class IsoContest {
 //        if (aValue.size() == 0)
 //            throw new IllegalArgumentException("E " + pos);
 //
-//        String close = aValue.get(0);
+//        String close = aValue.getValue(0);
 //        aValue.remove(0);
 //        if (close.startsWith("/")) {
 //            if (close.substring(1).equals(open)) {

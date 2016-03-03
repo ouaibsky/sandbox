@@ -63,7 +63,7 @@ public class Sudoku2 {
 
         // if v present in grid, return false
 
-        // to get the grid we should calculate (x1,y1) (x2,y2)
+        // to getValue the grid we should calculate (x1,y1) (x2,y2)
         int x1 = 3 * (cell.row / 3);
         int y1 = 3 * (cell.col / 3);
         int x2 = x1 + 2;
@@ -78,7 +78,7 @@ public class Sudoku2 {
         return true;
     }
 
-    // simple function to get the next cell
+    // simple function to getValue the next cell
     // read for yourself, very simple and straight forward
     static Cell getNextCell(Cell cur) {
 

@@ -1,0 +1,213 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>TOSA</title>
+<link rel="shortcut icon" href="https://d1uvkq6h1vbgdk.cloudfront.net/2/images/favicon.ico" type="image/x-icon" />
+<script src="https://d1uvkq6h1vbgdk.cloudfront.net/2/js/jquery-2.2.0.min.js.gz" type="text/javascript"></script>
+<script src="https://d1uvkq6h1vbgdk.cloudfront.net/2/js/jquery-ui-1.11.4.min.js.gz" type="text/javascript"></script>
+<link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet" type="text/css">
+<link href="https://d1uvkq6h1vbgdk.cloudfront.net/2/css/bootstrap.min.css.gz?version=20" rel="stylesheet" type="text/css">
+<link href="https://d1uvkq6h1vbgdk.cloudfront.net/2/css/jqueryui/jquery-ui.min.css.gz?version=20" rel="stylesheet" type="text/css">
+<link href="https://d1uvkq6h1vbgdk.cloudfront.net/2/css/isograd.css.gz?version=20" rel="stylesheet" type="text/css">
+<link href="https://d1uvkq6h1vbgdk.cloudfront.net/2/css/isograd_runtest.css.gz?version=20" rel="stylesheet" type="text/css">
+<script src="https://d1uvkq6h1vbgdk.cloudfront.net/2/js/isogradutilities.js?version=20" type="text/javascript"></script>
+<script src="https://d1uvkq6h1vbgdk.cloudfront.net/2/js/jquery.knob.min.js?version=20" type="text/javascript"></script>
+<script src="/runtest/js/jquery.countdown.min.js" type="text/javascript"></script>
+<script src="/runtest/js/timer.js?version=20" type="text/javascript"></script>
+<script src="/runtest/js/runtest.js?version=20" type="text/javascript"></script>
+<script src="/runtest/js/zoom.js?version=20" type="text/javascript"></script>
+<link href="https://d1uvkq6h1vbgdk.cloudfront.net/2/css/codeeditors.css?version=20" rel="stylesheet" type="text/css">
+<script src="https://d1uvkq6h1vbgdk.cloudfront.net/2/js/createeditor.js?version=20" type="text/javascript"></script>
+<script src="https://d1uvkq6h1vbgdk.cloudfront.net/2/ace/src/ace.js?version=20" type="text/javascript"></script>
+<script src="https://d1uvkq6h1vbgdk.cloudfront.net/2/ace/src/theme-textmate.js?version=20" type="text/javascript"></script>
+<script src="https://d1uvkq6h1vbgdk.cloudfront.net/2/ace/require.js?version=20" type="text/javascript"></script>
+<script src="https://d1uvkq6h1vbgdk.cloudfront.net/2/ace/range.js?version=20" type="text/javascript"></script>
+<script src="https://d1uvkq6h1vbgdk.cloudfront.net/2/ace/src/ext-language_tools.js?version=20" type="text/javascript"></script>
+<script src="https://d1uvkq6h1vbgdk.cloudfront.net/2/ace/src/mode-php.js" type="text/javascript"></script>
+<link href="https://d1uvkq6h1vbgdk.cloudfront.net/2/css/runtest_code.css?version=20" rel="stylesheet" type="text/css">
+<script src="https://d1uvkq6h1vbgdk.cloudfront.net/2/js/jquery.sprintf.js?version=20" type="text/javascript"></script>
+<script src="/runtest/js/runtest_code.js?version=20" type="text/javascript"></script>
+<link href="https://d1uvkq6h1vbgdk.cloudfront.net/2/css/runtest_contest.css?version=20" rel="stylesheet" type="text/css">
+<script src="/runtest/js/runtest_contest.js?version=20" type="text/javascript"></script>
+<link href="https://d1uvkq6h1vbgdk.cloudfront.net/2/css/runtestlaptop.css?version=20" rel="stylesheet" type="text/css">
+<link href="https://d1uvkq6h1vbgdk.cloudfront.net/2/css/buttonslaptop.css?version=20" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="site_wrapper">
+<header id="header"  class=" runtestheader">
+<img src="https://d1uvkq6h1vbgdk.cloudfront.net/2/images/menu-tosa-logo.png">
+<nav  role="navigation">
+<ul class="RuntestMenubar">
+</ul>
+</nav>
+</header>
+<div id="BoiteSite">
+<div class="admincontent">
+<div id="question">
+<div class="header_question contest">
+<p class="question_number">Question :&nbsp; 1<span style="font-size:18px;">/5</span></p>
+<img class="logo_header" src="https://d1uvkq6h1vbgdk.cloudfront.net/2/images/icons/button-php.png"><div class="form-group horizontal ">
+<label class="">Langage choisi :&nbsp;</label>
+<select name="sub_sbj_id_sel" id="sub_sbj_id_sel"  onchange="SubSbjIDHasChanged();" class="  form-control">
+<option value="106" >C</option>
+<option value="108" >C#</option>
+<option value="107" >C++</option>
+<option value="104" >Java</option>
+<option value="103"  selected="selected">PHP</option>
+<option value="101" >Python 3</option>
+<option value="110" >Ruby</option>
+</select>
+</div>
+</div>
+<p class="textitem" id="question_text">
+<span class="resize_area">
+<a  href="#" onClick="ResizeQuestionArea(3);"  class="button expand"><span ></span></a>
+<a  href="#" onClick="ResizeQuestionArea(2);"  class="button resize_medium"><span ></span></a>
+<a  href="#" onClick="ResizeQuestionArea(1);"  class="button minify"><span ></span></a>
+</span><img class="centered_image"  src="https://d3eh84liziwkm3.cloudfront.net/codecontest/en/fr/CTSTFR0023.png"><BR><BR>
+<Strong>Énoncé</Strong><BR><BR>
+<BR><BR>
+Une chaîne <i>X</i> est sous-séquence d&#039;une chaîne <i>Y</i> si l&#039;on retrouve toutes les lettres de <i>X</i> dans la chaîne <i>Y</i> dans le bon ordre. Par exemple:<span style="padding-left:40px;display:block;text-align:left;">- <i>aab</i> est une sous-séquence de <i>aacb</i>.<BR><BR>
+- <i>aab</i> n&#039;est pas une sous-séquence de <i>aba</i>.</span><BR><BR>
+Dans ce challenge, vous devez déterminer si une chaîne est une sous-séquence d&#039;une autre chaîne.<BR><BR>
+<BR><BR>
+<Strong>Format des données</Strong><BR><BR>
+<BR><BR>
+<u>Entrée</u><BR><BR>
+Ligne 1 : la chaîne de caractères <i>X</i><BR><BR>
+Ligne 2 : la chaîne de caractères <i>Y</i><BR><BR>
+La longueur de chaque chaîne ne dépasse pas 1000 caractères.<BR><BR>
+<BR><BR>
+<u>Sortie</u><BR><BR>
+La chaîne de caractères <span style="color: #5379AA;">OK</span> si <i>X</i> est une sous-séquence de <i>Y</i>.<BR><BR>
+Sinon, la chaîne de caractères <span style="color: #5379AA;">NOK <i>n</i></span> où <i>n</i> représente la longueur (éventuellement 0) du plus grand préfixe  de <i>X</i> qui soit sous-séquence de <i>Y</i>. On entend par préfixe de longueur <i>n</i>, la sous-chaîne égale aux <i>n</i> premiers caractères de <i>X</i>.<BR><BR>
+
+<BR><a class="view_att" href="https://d3eh84liziwkm3.cloudfront.net/sample_contest/sample-HRkKHKpt9AB8K9nRu-xF6dfQCaesviRMiyTikTNoMTI.zip" target="_blank" style="font-weight:bold;">Téléchargez des fichiers d'exemple ainsi qu'un modèle de code pour travailler localement.</a>
+</p>
+</div>
+<form action="runtest.php" method="post" name="QuestionForm" id="QuestionForm">
+<div id="answers">
+<div class="code_controlbar">
+<div class="control-bar-buttons">
+<div  class="box-button cut-bottom">
+<a  href="#" onClick="ResetCode();"  class="button blue auto small"><i class="myicon fa " ></i><span  class="label">Rétablir le code original</span></a>
+</div>
+<div  class="box-button cut-bottom">
+<a  href="#" onClick="ContestSubmit();"  class="button blue auto small"><i class="myicon fa " ></i><span  class="label">Répondre</span></a>
+</div>
+<div  class="box-button cut-bottom">
+<a  href="#" onClick="ShowSolution();"  class="button blue  small"><i class="myicon fa " ></i><span  class="label">Voir la solution</span></a>
+</div>
+<div  class="box-button cut-bottom">
+<a  href="http://www.isograd.com/FR/solutionconcours.php?contest_id=8" onClick="BackToList();"  class="button blue  small"><i class="myicon fa " ></i><span  class="label">Revenir à la liste</span></a>
+</div>
+</div>
+<div class="submit hide" id="wait_area" >
+<div class="progress">
+                                    <div class="progress-bar progress-bar-striped active"  role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 1%">
+                                      <span class="sr-only"></span>
+                                    </div>
+                                  </div><label id="progressbar"></label>
+<a  id="stop_processing_button" href="#" onClick="StopProcessing();"  class="button blue x-small"><span >Interrompre l'exécution</span></a>
+</div>
+<span class="resize_area">
+<a  href="#" onClick="ResizeCodeArea(3);"  class="button expand"><span ></span></a>
+<a  href="#" onClick="ResizeCodeArea(2);"  class="button resize_medium"><span ></span></a>
+<a  href="#" onClick="ResizeCodeArea(1);"  class="button minify"><span ></span></a>
+</span>
+</div>
+<div class="code" id="question_code_container"><pre  id="question_code" class="code_input" style=""></pre></div>
+<ul class="server_result" style="margin-bottom:20px;">
+<li class="result" id="question_success" ></li>
+<li class="des"><a href="#output" id="output" onclick="ToggleOutput(this,'#server_output');">Affichage</a></li>
+<li id="server_output" class="phpoutput" style="overflow:hidden;"></li>
+<li class="des" id="local_echo_title"><a href="#local_echo" id="local_echo" onclick="ToggleOutput(this,'#local_echo_display');">Résultat de local_echo() et local_print_r()</a></li>
+<li id="local_echo_display" class="phpoutput" style="display:none;overflow:hidden;"></li>
+<li class="des"><a href="#errors" id="errors" onclick="ToggleOutput(this,'#server_errors');">Message d'erreur</a></li>
+<li id="server_errors" class="phperrors"></li>
+</ul>
+</div>
+  <textarea  name="full_code" style="display:none" class="form-control " id="full_code" data-required="1">
+</textarea>
+<textarea  name="final_code" style="display:none" class="form-control " id="final_code" data-required="1">
+</textarea>
+<div id="contest_success" title="C'est bon !" class="mydialog"><div class="content_area">
+<p id="ranking" class="question_title"></p>
+<p style="padding-top:20px;padding-bottom:20px;">Lors d'un vrai concours vous passeriez maintenant à la question suivante.</p>
+</div><div class="button_area">
+<div  class="box-button cut-top fixed-bottom">
+<a  href="http://www.isograd.com/FR/solutionconcours.php?contest_id=8" onClick="BackToList();"  class="button blue  small"><i class="myicon fa " ></i><span  class="label">Quitter</span></a>
+</div>
+</div>
+</div>
+<div id="contest_finish" title="Le concours est terminé" class="mydialog"><div class="content_area">
+<p style="padding-top:20px;padding-bottom:20px;">Vous pouvez continuer à coder et répondre aux questions. Néanmoins, vos prochaines bonnes réponses ne serons pas comptabilisées dans le classement final.</p>
+</div><div class="button_area">
+<div  class="box-button cut-top fixed-bottom">
+<a  href="#" onClick="$('.ui-dialog-content').dialog().dialog('close');"  class="button blue  small"><i class="myicon fa " ></i><span  class="label">OK</span></a>
+</div>
+</div>
+</div>
+<input type="hidden" name="laptop" id="laptop" value="1" />
+<input type="hidden" name="lan_lin_off" id="lan_lin_off" value="4" />
+<input type="hidden" name="processing_dir" id="processing_dir" value="/exerciseprocessing/" />
+<input type="hidden" name="ace_mode" id="ace_mode" value="php" />
+<input type="hidden" name="sub_sbj_id" id="sub_sbj_id" value="103" />
+<input type="hidden" name="pla_tst_id" id="pla_tst_id" value="306920" />
+<input type="hidden" name="str_id" id="str_id" value="CTSTFR0023" />
+</form>
+<div id="timeover" title="Le temps limite pour cette question a été atteint" class="mydialog"><div class="content_area">
+<div id="timer_finish_small"></div>
+<p>Votre résultat à la question sera basé sur votre réponse actuelle.</p>
+</div><div class="button_area">
+<div  class="box-button cut-top fixed-bottom">
+<a  id="close_errordisplay" href="#" onClick="$('#close_errordisplay').parent().hide();ContestSubmit();"  class="button blue  small"><i class="myicon fa " ></i><span  class="label">Question suivante</span></a>
+</div>
+</div>
+</div>
+<div id="solution" title="Code de la réponse" class="mydialog"><div class="box-close">
+					<div class="under-box-close">
+							<a type="button" class="close" data-dismiss="modal" onclick="$(this).parents('.ui-dialog').find('.ui-icon-closethick').click();"><span aria-hidden="true">&times;</span></a>
+					</div>
+				</div> <div class="content_area">
+<div class="noneditable_code_container" id="solution_code_container"><pre  id="editor_1_code" class="noneditable_code" style=""></pre></div>
+<textarea style="display:none;" id="editor_src_1">
+<?php
+//Solution TOSA
+$input = array();
+while( $f = stream_get_line(STDIN, 10000, PHP_EOL) ) {
+    $input[] = $f;
+    /* Lisez les données et effectuez votre traitement */
+}
+$tab_x = str_split($input[0]);
+$tab_y = str_split($input[1]);
+
+$cpt_x=0;
+for($i=0;$i<count($tab_y);$i++){
+    if($tab_y[$i] == $tab_x[$cpt_x]){
+        $cpt_x++;
+    }
+    if(count($tab_x) == $cpt_x){
+        break;
+    }
+}
+
+if(count($tab_x) == $cpt_x){
+    echo 'OK';
+}
+else{
+    echo 'NOK '.$cpt_x;
+}
+?>
+</textarea>
+</div></div>
+</div>
+</div>
+<div id="footer"><p>© 2010 - 2015, ISOGRAD SAS. All rights reserved.</p></div>
+</div>
+</body>
+</html>

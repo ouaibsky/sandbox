@@ -1,0 +1,97 @@
+/* @override http://icat/css/buttons.css */
+/* Old versio buttons*/
+/* submit button */
+	
+a.loupe, .helpbtn a, .helpbtnuk a, a.smallloupe {
+background:url("../images/runtest/buttons/answers-btn-zoom-laptop.png") no-repeat;
+height:15px;
+width: 15px; 
+top:3px;
+}
+
+/* zoom des images multi et zoom des images question uniquement en version laptop */
+a.zoomvideo, a.zoomimage,a.zoomreponse, a.zoomreponse:visited .zoomimage a:visited, a.zoomvideo :visited{
+	overflow: hidden;
+	position: absolute;
+	display: block;
+	height: 24px;
+	width: 25px;
+	margin: 0;
+	background: url(../images/runtest/buttons/capture-btn-zoom.png) 0 0 no-repeat transparent;
+	padding: 0px;
+	cursor:pointer;
+	right: 1px;
+	bottom: 5px;
+}
+
+a.zoomvideo, a.zoomimage {
+ 	bottom: 12px;
+    position: absolute;
+    right: 3px;
+}
+
+a.zoomimage {
+	right: 1px;
+	bottom: 9px;
+}
+
+a.zoomvideo.zoomin,a.zoomimage.zoomin {
+	background-image: url(../images/runtest/buttons/capture-btn-zoom-in.png);
+
+}
+
+
+a:hover.zoomreponse, a.zoomquestion:hover, a.zoomimage:hover,a.zoomvideo:hover{
+	background-position: 0 100%;
+}
+	
+
+li.ChoseReponseMulti,li.ChoseReponseMultiRadio {
+	background: url(../images/runtest/buttons/answers-btn-laptop-checkbox.png) no-repeat -38px 0;
+	width:28px;
+	position:relative;
+	top:2px;
+	margin-bottom:0px;
+	padding-bottom:5px;
+
+}
+
+li.ChoseReponseMulti,li.ChoseReponseMultiRadio,li.ChoseReponseMultiRadio.chosen_correct,li.ChoseReponseMultiRadio.wrong, li.ChoseReponseMultiRadio.checked,
+li.ChoseReponseMulti.chosen_correct,li.ChoseReponseMulti.wrong,li.ChoseReponseMulti.checked{
+	background: url(../images/runtest/buttons/answers-btn-laptop-radio.png) no-repeat -38px 0;
+	width:27px;
+	height:25px;
+	top:3px;
+	padding-bottom: 0px;
+}
+
+li.ChoseReponseMulti,li.ChoseReponseMulti.chosen_correct,li.ChoseReponseMulti.wrong,li.ChoseReponseMulti.checked {
+	background: url(../images/runtest/buttons/answers-btn-laptop-checkbox.png) no-repeat -38px 0;
+}
+
+li.ChoseReponseMultiRadio.chosen_correct{
+	background-position: 0 0;
+	
+}
+li.ChoseReponseMultiRadio.wrong{
+	 background-position: 0 -69px;
+}
+
+
+
+li.ChoseReponseMultiRadio.checked, li.ChoseReponseMulti.checked {
+	background-position: 0px -28px;
+}
+
+li.ChoseReponseMulti.chosen_correct{
+	background-position: 0px 0px;
+}
+
+li.ChoseReponseMulti.wrong{
+	background-position:0px -60px;
+}
+
+a.boutondontknow,a.boutondontknow:visited
+{	 padding:3px;
+}
+

@@ -1,6 +1,7 @@
 package org.icroco.mdf2015.ex5_rallonges_courant;
 // START COPY
 
+
 import java.util.*;
 
 
@@ -25,43 +26,75 @@ public class IsoContest {
     }
 
     static List<String> getSolution(LinkedList<String> aInput) {
-        LinkedList<String> output = new LinkedList<>();
-        int          amount   = Integer.parseInt(aInput.removeFirst().trim());
-        IsoContestBase.localEcho("Read amount: "+amount);
-        IsoContestBase.localEcho("Read Tour: "+aInput.removeFirst());
+        LinkedList<String> output      = new LinkedList<>();
+        int                nbRallonges = Integer.parseInt(aInput.removeFirst().trim());
+        IsoContestBase.localEcho("Read nbRallonges: " + output);
 
 
-        List<Line> lines = getAsList(aInput);
-        for (Line l: lines) {
-           amount += (-l.x + l.y);
+        List<Line>                    lines = getAsList(aInput);
+        Map<String, LinkedList<Line>> stock = new HashMap<>();
+        for (Line l : lines) {
+            if (!stock.containsKey(l.type)) {
+                stock.put(l.type, new LinkedList<Line>());
+            }
+            stock.get(l.type).add(l);
+            Collections.sort(stock.get(l.type));
+            Collections.reverse(stock.get(l.type));
         }
         IsoContestBase.localEcho("");
+        LinkedList<Line> MM     = stock.get("M-M");
+        LinkedList<Line> FF     = stock.get("F-F");
+        LinkedList<Line> MF     = stock.get("M-F");
+        LinkedList<Line> chaine = new LinkedList<>();
 
-        IsoContestBase.localEcho("result, amount: "+amount);
-        output.add(""+amount);
+        while (!MM.isEmpty() && !FF.isEmpty()) {
+            chaine.add(MM.removeFirst());
+            chaine.add(FF.removeFirst());
+        }
+        if (!MM.isEmpty() && chaine.getLast().type.equalsIgnoreCase("FF")) {
+            chaine.add(MM.removeFirst());
+        } else if (!FF.isEmpty() && chaine.getLast().type.equalsIgnoreCase("MM")) {
+            chaine.add(FF.removeFirst());
+        }
+
+        chaine.addAll(MF);
+        int length = 0;
+        for (Line l : chaine) {
+            length += l.length;
+        }
+
+
+        IsoContestBase.localEcho("result, amount: " + length);
+        output.add("" + length);
         IsoContestBase.localEcho("----");
         IsoContestBase.localEcho("");
         return output;
     }
 
     // TODO: refactor class name if it's help understanding.
-    public static class Line {
+    public static class Line implements Comparable<Line> {
         // TODO refactor attributes if it make sens.
-        int     x;
-        int     y;
+        String type;
+        int    length;
 
         public Line(final String oneLine) {
             String[] SA = oneLine.trim().split("\\s+"); // TODO replace speparator: "," or ":"
-            x = Integer.parseInt(SA[0]);           //                           // TODO: change type: int, string, ...
-            y = Integer.parseInt(SA[1]);           // TODO: change type: int, string, ...
-            IsoContestBase.localEcho(String.format("Read Line: %1$s %2$s", x, y));
+            type = SA[0].toUpperCase();
+            if (type.equalsIgnoreCase("F-M") || type.equalsIgnoreCase("M-F"))
+                type = "M-F";
+            length = Integer.parseInt(SA[1]);           // TODO: change type: int, string, ...
+            IsoContestBase.localEcho(String.format("Read Line: %1$s %2$s", type, length));
+        }
+
+        @Override
+        public int compareTo(final Line o) {
+            return Integer.compare(length, o.length);
         }
 
     }
 
 
     /**
-     *
      * @param aInput
      * @return
      */
@@ -73,31 +106,7 @@ public class IsoContest {
         return lines;
     }
 
-    public static SortedSet<Line> getAsSet(LinkedList<String> aInput) {
-        SortedSet<Line> lines = new TreeSet<>();
-        for (String str : aInput) {
-            Line l = new Line(str);
-            if (lines.contains(l)) {
-                // TODO: already there, something different to do !!
-            } else {
-                lines.add(new Line(str));
-            }
-        }
-        return lines;
-    }
-
-
-
-
-    public static Integer[] toIntArray(String line) {
-        String[]  SA = line.split("\\s+");
-        Integer[] IA = new Integer[SA.length];
-        for (int i = 0; i < SA.length; i++)
-            IA[i] = Integer.parseInt(SA[i]);
-
-        return IA;
-    }
 }
-    // END COPY
+// END COPY
 
 

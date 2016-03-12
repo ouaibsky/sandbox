@@ -1,0 +1,59 @@
+div#question {
+	padding-top:10px;
+}
+
+div#question div.textitem 
+{	font-size:14px;
+}	
+
+
+div#imagequestion, div#thefilm {
+    float:left;
+    background: url(../images/runtest/question-laptop-capture.png) no-repeat 0 100%;
+    padding-bottom: 8px;
+    margin-bottom:5px;
+    position : relative; /* required to have the loupe in bottom right*/
+}
+div#imagequestion
+{	padding-bottom: 5px;
+}
+
+div#imagequestion img.small
+{	max-height:300px;
+  maw-width:1020px;
+}
+
+
+li.helptext  {
+    font-size:12px;
+    line-height: 20px;
+}
+
+ul li.textereponse{
+    line-height: 20px;
+    margin-bottom:10px;
+    font-size:13px;
+    padding: 4px 0px 6px 5px;
+}
+
+div#answered_questions ul li.des {
+    padding-top:6px;
+}
+
+div#drag_column ul li, div#drop_column ul li,
+div#target_column ul li, div#source_column ul li{
+  padding:5px 10px;
+  margin-bottom:10px;
+}
+
+div#drag_column ul li img, div#drop_column ul li img,
+div#target_column ul li img, div#source_column ul li img{
+  max-height: 80px;
+}
+
+/*********************************************************************************************************/
+/*                      TEXT WITH SELECT                                                                   */
+/********************************************************************************************************/
+p.text_with_select{
+	font-size:15px;
+}

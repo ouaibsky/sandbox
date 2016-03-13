@@ -26,19 +26,19 @@ public class IsoContest {
 
     static List<String> getSolution(LinkedList<String> aInput) {
         LinkedList<String> output = new LinkedList<>();
-        int          amount   = Integer.parseInt(aInput.removeFirst().trim());
-        IsoContestBase.localEcho("Read amount: "+amount);
+        int          firstLine   = Integer.parseInt(aInput.removeFirst().trim());
+        IsoContestBase.localEcho("Read firstLine: "+firstLine);
         IsoContestBase.localEcho("Read Tour: "+aInput.removeFirst());
 
 
         List<Line> lines = getAsList(aInput);
         for (Line l: lines) {
-           amount += (-l.x + l.y);
+            firstLine += (-l.x + l.y);
         }
         IsoContestBase.localEcho("");
 
-        IsoContestBase.localEcho("result, amount: "+amount);
-        output.add(""+amount);
+        IsoContestBase.localEcho("firstLine: "+firstLine);
+        output.add(""+firstLine);
         IsoContestBase.localEcho("----");
         IsoContestBase.localEcho("");
         return output;

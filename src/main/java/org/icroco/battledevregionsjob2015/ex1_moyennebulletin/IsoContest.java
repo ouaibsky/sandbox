@@ -30,12 +30,16 @@ public class IsoContest {
         int                resultat = 0;
         IsoContestBase.localEcho("Read nbLine: " + nbLines);
 
+        List<Integer> note = new ArrayList<>();
         while(!aInput.isEmpty()) {
             int value = Integer.valueOf(aInput.removeFirst());  // TODO: remove or uncomment
+            note.add(value);
             // Integer[] line = toIntArray(aInput.removeFirst());  // TODO: remove or uncomment
             // List<Line> lines = getAsList(aInput);               // TODO: remove or uncomment
+            resultat += value;
         }
 
+        resultat = resultat / note.size();
         IsoContestBase.localEcho("");
 
         IsoContestBase.localEcho("result: " + resultat);

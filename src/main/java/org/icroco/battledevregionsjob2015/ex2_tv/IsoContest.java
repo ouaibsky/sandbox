@@ -1,6 +1,7 @@
 package org.icroco.battledevregionsjob2015.ex2_tv;
 // START COPY
 
+import java.math.BigDecimal;
 import java.util.*;
 
 
@@ -26,17 +27,20 @@ public class IsoContest {
 
     static List<String> getSolution(LinkedList<String> aInput) {
         LinkedList<String> output   = new LinkedList<>();
-        int                nbLines  = Integer.parseInt(aInput.removeFirst());
-        int                resultat = 0;
-        IsoContestBase.localEcho("Read nbLine: " + nbLines);
+        Integer[] line                   = toIntArray(aInput.removeFirst());
+        int T = line[0];
+        int D = line[1];
+        double                resultat = 0;
+        IsoContestBase.localEcho("Read nbLine: T:" + T+" D:"+D);
 
-        while(!aInput.isEmpty()) {
-            int value = Integer.valueOf(aInput.removeFirst());  // TODO: remove or uncomment
-            // Integer[] line = toIntArray(aInput.removeFirst());  // TODO: remove or uncomment
-            // List<Line> lines = getAsList(aInput);               // TODO: remove or uncomment
+        Double res = 100d;
+        for (int i = 0; i < D; i++) {
+            res = res  * (1 + T/100D);
         }
 
-        IsoContestBase.localEcho("");
+        resultat = res-100D;
+        resultat = BigDecimal.valueOf(resultat).setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue();
+        IsoContestBase.localEcho(String.format("", resultat));
 
         IsoContestBase.localEcho("result: " + resultat);
         output.add("" + resultat);

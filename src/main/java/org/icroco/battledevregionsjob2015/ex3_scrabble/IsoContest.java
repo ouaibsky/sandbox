@@ -25,21 +25,46 @@ public class IsoContest {
     }
 
     static List<String> getSolution(LinkedList<String> aInput) {
-        LinkedList<String> output   = new LinkedList<>();
-        int                nbLines  = Integer.parseInt(aInput.removeFirst());
-        int                resultat = 0;
-        IsoContestBase.localEcho("Read nbLine: " + nbLines);
+        LinkedList<String> output       = new LinkedList<>();
+        int                nbDico       = Integer.parseInt(aInput.removeFirst());
+        Integer[]          valeurLettre = toIntArray(aInput.removeFirst());
 
-        while(!aInput.isEmpty()) {
-            int value = Integer.valueOf(aInput.removeFirst());  // TODO: remove or uncomment
-            // Integer[] line = toIntArray(aInput.removeFirst());  // TODO: remove or uncomment
-            // List<Line> lines = getAsList(aInput);               // TODO: remove or uncomment
+        char[]                  alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+        Map<Character, Integer> resultat = new HashMap<>();
+        int                     pos      = 0;
+        for (char c : alphabet) {
+            resultat.put(c, valeurLettre[pos]);
+            pos++;
+        }
+
+        IsoContestBase.localEcho("Read nb: " + nbDico + " valeur: " + Arrays.toString(alphabet));
+
+        String motMax;
+        int    lenMin  = Integer.MAX_VALUE;
+        int    prixMax = 0;
+        while (!aInput.isEmpty()) {
+            char mot[] = aInput.removeFirst().toCharArray();
+            int  prix  = 0;
+            for (char c : mot) {
+                prix += resultat.get(c);
+            }
+            if (prix > prixMax) {
+                prixMax = prix;
+                lenMin = mot.length;
+            }
+            else if (prix == prixMax) {
+                if (mot.length < lenMin) {
+                    lenMin = mot.length;
+                }
+            }
+
+
         }
 
         IsoContestBase.localEcho("");
 
-        IsoContestBase.localEcho("result: " + resultat);
-        output.add("" + resultat);
+        IsoContestBase.localEcho("result: " + prixMax + " " + lenMin);
+        output.add("" + prixMax + " " + lenMin);
         IsoContestBase.localEcho("----");
         IsoContestBase.localEcho("");
         return output;

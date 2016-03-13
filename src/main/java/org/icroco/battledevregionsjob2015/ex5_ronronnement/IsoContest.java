@@ -25,15 +25,25 @@ public class IsoContest {
     }
 
     static List<String> getSolution(LinkedList<String> aInput) {
-        LinkedList<String> output   = new LinkedList<>();
-        int                nbLines  = Integer.parseInt(aInput.removeFirst());
-        int                resultat = 0;
-        IsoContestBase.localEcho("Read nbLine: " + nbLines);
+        LinkedList<String> output = new LinkedList<>();
+        String             nb     = aInput.removeFirst();
+        IsoContestBase.localEcho("Read nbLine: " + nb);
+        int resultat = 1;
 
-        while(!aInput.isEmpty()) {
-            int value = Integer.valueOf(aInput.removeFirst());  // TODO: remove or uncomment
-            // Integer[] line = toIntArray(aInput.removeFirst());  // TODO: remove or uncomment
-            // List<Line> lines = getAsList(aInput);               // TODO: remove or uncomment
+        while (true) {
+            String motif = nb.substring(0, resultat);
+            boolean ok = true;
+            for (int i = 0; i < nb.length(); i += resultat) {
+                String seq = nb.substring(i, i+motif.length());
+                if (!motif.equals(seq)) {
+                    ok = false;
+                    break;
+                }
+            }
+            if (ok) {
+                break;
+            }
+            resultat++;
         }
 
         IsoContestBase.localEcho("");

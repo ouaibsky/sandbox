@@ -30,60 +30,61 @@ public class IsoContest {
         int                resultat = 0;
         IsoContestBase.localEcho("Read nbLine: " + nbLines);
 
-        while(!aInput.isEmpty()) {
-            int value = Integer.valueOf(aInput.removeFirst());  // TODO: remove or uncomment
-            // Integer[] line = toIntArray(aInput.removeFirst());  // TODO: remove or uncomment
-            // List<Line> lines = getAsList(aInput);               // TODO: remove or uncomment
+        List<Cell> prises = new ArrayList<>();
+        List<Cell> prisesOK = new ArrayList<>();
+        while (!aInput.isEmpty()) {
+            Integer[] tuple = toIntArray(aInput.removeFirst());
+            prises.add(new Cell(tuple[0], tuple[1]));
         }
 
+        Collections.sort(prises, new Comparator<Cell>() {
+            @Override
+            public int compare(final Cell o1, final Cell o2) {
+                return Integer.compare(o1.a, o2.a);
+            }
+        });
+
+        for (Cell c: prises) {
+            if (!croisent(prisesOK, c))   {
+                prisesOK.add(c);
+            }
+        }
+
+        IsoContestBase.localEcho("sorted: " + prisesOK.size());
         IsoContestBase.localEcho("");
 
-        IsoContestBase.localEcho("result: " + resultat);
+        IsoContestBase.localEcho("result: " + prisesOK.size());
         output.add("" + resultat);
         IsoContestBase.localEcho("----");
         IsoContestBase.localEcho("");
         return output;
     }
 
-    // TODO: refactor class name if it's help understanding.
-    public static class Line {
-        // TODO refactor attributes if it make sens.
-        int x;
-        int y;
+    private static boolean croisent(final List<Cell> aPrises, final Cell aC) {
+        if (aPrises.isEmpty())
+            return false;
 
-        public Line(final String oneLine) {
-            String[] SA = oneLine.trim().split("\\s+"); // TODO replace speparator: "," or ":"
-            x = Integer.parseInt(SA[0]);           //                           // TODO: change type: int, string, ...
-            y = Integer.parseInt(SA[1]);           // TODO: change type: int, string, ...
-            IsoContestBase.localEcho(String.format("Read Line: %1$s %2$s", x, y));
+        for (Cell c: aPrises) {
+            if (aC.a >= c.a)
+                continue;
         }
 
+        return false;
     }
 
+    public static class Cell {
+        int a;
+        int b;
 
-    /**
-     * @param aInput
-     * @return
-     */
-    public static List<Line> getAsList(LinkedList<String> aInput) {
-        ArrayList<Line> lines = new ArrayList<>();
-        for (String str : aInput) {
-            lines.add(new Line(str));
+        public Cell(final int aA, final int aB) {
+            a = aA;
+            b = aB;
         }
-        return lines;
-    }
 
-    public static SortedSet<Line> getAsSet(LinkedList<String> aInput) {
-        SortedSet<Line> lines = new TreeSet<>();
-        for (String str : aInput) {
-            Line l = new Line(str);
-            if (lines.contains(l)) {
-                // TODO: already there, something different to do !!
-            } else {
-                lines.add(new Line(str));
-            }
+        @Override
+        public String toString() {
+            return a + " " + b;
         }
-        return lines;
     }
 
 

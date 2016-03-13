@@ -1,7 +1,10 @@
 package org.icroco.battledevregionsjob2015.ex4_logigraphe;
 // START COPY
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
 
 
 /**
@@ -25,65 +28,88 @@ public class IsoContest {
     }
 
     static List<String> getSolution(LinkedList<String> aInput) {
-        LinkedList<String> output   = new LinkedList<>();
-        int                nbLines  = Integer.parseInt(aInput.removeFirst());
-        int                resultat = 0;
-        IsoContestBase.localEcho("Read nbLine: " + nbLines);
+        LinkedList<String> output  = new LinkedList<>();
+        Integer[]          nbLines = toIntArray(aInput.removeFirst());
+        IsoContestBase.localEcho("Read nbLine: " + Arrays.toString(nbLines));
 
-        while(!aInput.isEmpty()) {
-            int value = Integer.valueOf(aInput.removeFirst());  // TODO: remove or uncomment
-            // Integer[] line = toIntArray(aInput.removeFirst());  // TODO: remove or uncomment
-            // List<Line> lines = getAsList(aInput);               // TODO: remove or uncomment
+        Integer[][] matrix = extractMatrix(aInput, nbLines[0], nbLines[1]);
+        printMatrix(matrix, 2);
+
+        String resultat = "";
+
+        int nb = 0;
+        for (int y = 0; y < matrix.length; y++) {
+            String row = "";
+            nb = 0;
+            for (int x = 0; x < matrix[0].length; x++) {
+                if (matrix[y][x] == 1)
+                    nb++;
+                else {
+                    if (nb > 0)
+                        row += "" + nb + "-";
+                    nb = 0;
+                }
+            }
+            if (nb > 0)
+                row += "" + nb;
+            row = row.replaceAll("-$", "");
+            if (row.length() == 0)
+                row = ".";
+            resultat += row + " ";
         }
+
+        nb = 0;
+        for (int x = 0; x < matrix[0].length; x++) {
+            String col = "";
+            nb = 0;
+            for (int y = 0; y < matrix.length; y++) {
+                if (matrix[y][x] == 1)
+                    nb++;
+                else {
+                    if (nb > 0)
+                        col += "" + nb + "-";
+                    nb = 0;
+                }
+
+            }
+            if (nb > 0)
+                col += "" + nb;
+            col = col.replaceAll("-$", "");
+            if (col.length() == 0)
+                col = ".";
+            resultat += col + " ";
+        }
+
 
         IsoContestBase.localEcho("");
 
-        IsoContestBase.localEcho("result: " + resultat);
-        output.add("" + resultat);
+        IsoContestBase.localEcho("result: " + resultat.trim());
+        output.add("" + resultat.trim());
         IsoContestBase.localEcho("----");
         IsoContestBase.localEcho("");
         return output;
     }
 
-    // TODO: refactor class name if it's help understanding.
-    public static class Line {
-        // TODO refactor attributes if it make sens.
-        int x;
-        int y;
-
-        public Line(final String oneLine) {
-            String[] SA = oneLine.trim().split("\\s+"); // TODO replace speparator: "," or ":"
-            x = Integer.parseInt(SA[0]);           //                           // TODO: change type: int, string, ...
-            y = Integer.parseInt(SA[1]);           // TODO: change type: int, string, ...
-            IsoContestBase.localEcho(String.format("Read Line: %1$s %2$s", x, y));
+    public static void printMatrix(Integer[][] matrix, int padding) {
+        for (int y = 0; y < matrix.length; y++) {
+            StringBuilder b = new StringBuilder();
+            for (int x = 0; x < matrix[y].length; x++) {
+                b.append(String.format("%1$-" + padding + "s", matrix[y][x]));
+            }
+            IsoContestBase.localEcho(b.toString());
         }
-
     }
 
+    public static Integer[][] extractMatrix(LinkedList<String> aInput, int ySize, int xSize) {
+        Integer[][] result = new Integer[ySize][xSize];
 
-    /**
-     * @param aInput
-     * @return
-     */
-    public static List<Line> getAsList(LinkedList<String> aInput) {
-        ArrayList<Line> lines = new ArrayList<>();
-        for (String str : aInput) {
-            lines.add(new Line(str));
-        }
-        return lines;
-    }
-
-    public static SortedSet<Line> getAsSet(LinkedList<String> aInput) {
-        SortedSet<Line> lines = new TreeSet<>();
-        for (String str : aInput) {
-            Line l = new Line(str);
-            if (lines.contains(l)) {
-                // TODO: already there, something different to do !!
-            } else {
-                lines.add(new Line(str));
+        for (int y = 0; y < ySize; y++) {
+            char[] cells = aInput.removeFirst().toCharArray(); // TODO uncomment if char array
+            for (int x = 0; x < cells.length; x++) {
+                result[y][x] = cells[x] == '.' ? 0 : 1; // TODO uncomment if char array
             }
         }
-        return lines;
+        return result;
     }
 
 

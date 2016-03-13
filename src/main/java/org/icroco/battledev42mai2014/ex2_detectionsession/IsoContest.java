@@ -1,7 +1,9 @@
 package org.icroco.battledev42mai2014.ex2_detectionsession;
 // START COPY
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Scanner;
 
 
 /**
@@ -26,67 +28,40 @@ public class IsoContest {
 
     static List<String> getSolution(LinkedList<String> aInput) {
         LinkedList<String> output    = new LinkedList<>();
-        int                firstLine = Integer.parseInt(aInput.removeFirst());
-        //Integer            firstLine = toIntArray(aInput.removeFirst());  // TODO: remove or uncomment
-        int                resultat  = 0;
-        IsoContestBase.localEcho("Read firstLine: " + firstLine);
+        String[]           firstLine = aInput.removeFirst().split("\\s+");  // TODO: remove or uncomment
 
-        while (!aInput.isEmpty()) {
-            int value = Integer.valueOf(aInput.removeFirst());  // TODO: remove or uncomment
-            // Integer[] line = toIntArray(aInput.removeFirst());  // TODO: remove or uncomment
-            // List<Line> lines = getAsList(aInput);               // TODO: remove or uncomment
+        //IsoContestBase.localEcho("Read firstLine: " + Arrays.toString(firstLine));
+
+        int prev = Integer.valueOf(firstLine[0], 16);
+        int    count    = prev;
+        int maxLen = 0;
+        String maxSeq = "";
+        String res    = firstLine[0]+" ";
+        for (int i = 1; i < firstLine.length; i++) {
+            int v = Integer.valueOf(firstLine[i], 16);
+            if (v == prev + 1) {
+                res += firstLine[i] + " ";
+                count += v;
+
+            } else {
+                if (count > maxLen) {
+                    maxLen = count;
+                    maxSeq = res;
+                }
+                count = v;
+                res = firstLine[i]+" ";
+            }
+            prev = v;
         }
 
         IsoContestBase.localEcho("");
 
-        IsoContestBase.localEcho("result: " + resultat);
-        output.add("" + resultat);
+        IsoContestBase.localEcho("result: " + maxSeq.trim());
+        output.add("" + maxSeq.trim());
         IsoContestBase.localEcho("----");
         IsoContestBase.localEcho("");
         return output;
     }
-
-    // TODO: refactor class name if it's help understanding.
-    public static class Line {
-        // TODO refactor attributes if it make sens.
-        int x;
-        int y;
-
-        public Line(final String oneLine) {
-            String[] SA = oneLine.trim().split("\\s+"); // TODO replace speparator: "," or ":"
-            x = Integer.parseInt(SA[0]);           //                           // TODO: change type: int, string, ...
-            y = Integer.parseInt(SA[1]);           // TODO: change type: int, string, ...
-            IsoContestBase.localEcho(String.format("Read Line: %1$s %2$s", x, y));
-        }
-
-    }
-
-
-    /**
-     * @param aInput
-     * @return
-     */
-    public static List<Line> getAsList(LinkedList<String> aInput) {
-        ArrayList<Line> lines = new ArrayList<>();
-        for (String str : aInput) {
-            lines.add(new Line(str));
-        }
-        return lines;
-    }
-
-    public static SortedSet<Line> getAsSet(LinkedList<String> aInput) {
-        SortedSet<Line> lines = new TreeSet<>();
-        for (String str : aInput) {
-            Line l = new Line(str);
-            if (lines.contains(l)) {
-                // TODO: already there, something different to do !!
-            } else {
-                lines.add(new Line(str));
-            }
-        }
-        return lines;
-    }
-
 
     public static Integer[] toIntArray(String line) {
         String[]  SA = line.split("\\s+");

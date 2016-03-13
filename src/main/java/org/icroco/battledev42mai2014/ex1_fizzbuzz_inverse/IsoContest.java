@@ -26,65 +26,39 @@ public class IsoContest {
 
     static List<String> getSolution(LinkedList<String> aInput) {
         LinkedList<String> output    = new LinkedList<>();
-        int                firstLine = Integer.parseInt(aInput.removeFirst());
-        //Integer            firstLine = toIntArray(aInput.removeFirst());  // TODO: remove or uncomment
-        int                resultat  = 0;
-        IsoContestBase.localEcho("Read firstLine: " + firstLine);
+        String[]            firstLine = aInput.removeFirst().split("\\s+");  // TODO: remove or uncomment
+        IsoContestBase.localEcho("Read firstLine: " + Arrays.toString(firstLine));
 
-        while (!aInput.isEmpty()) {
-            int value = Integer.valueOf(aInput.removeFirst());  // TODO: remove or uncomment
-            // Integer[] line = toIntArray(aInput.removeFirst());  // TODO: remove or uncomment
-            // List<Line> lines = getAsList(aInput);               // TODO: remove or uncomment
+
+        List<Integer> dico = new ArrayList<>();
+        int fizz = 0;
+        int cpt = 1;
+        for (String s: firstLine) {
+            if (s.equals("Buzz")) {
+                dico.add(cpt);
+
+            }
+            cpt++;
+        }
+
+        int first = dico.get(0);
+        int second = 0;
+        for (int i = 1; i < dico.size(); i++) {
+            if (dico.get(i) % first != 0)
+            {
+                second = dico.get(i);
+                break;
+            }
+
         }
 
         IsoContestBase.localEcho("");
 
-        IsoContestBase.localEcho("result: " + resultat);
-        output.add("" + resultat);
+        IsoContestBase.localEcho("result: " + first+" "+second);
+        output.add("" + first+" "+second);
         IsoContestBase.localEcho("----");
         IsoContestBase.localEcho("");
         return output;
-    }
-
-    // TODO: refactor class name if it's help understanding.
-    public static class Line {
-        // TODO refactor attributes if it make sens.
-        int x;
-        int y;
-
-        public Line(final String oneLine) {
-            String[] SA = oneLine.trim().split("\\s+"); // TODO replace speparator: "," or ":"
-            x = Integer.parseInt(SA[0]);           //                           // TODO: change type: int, string, ...
-            y = Integer.parseInt(SA[1]);           // TODO: change type: int, string, ...
-            IsoContestBase.localEcho(String.format("Read Line: %1$s %2$s", x, y));
-        }
-
-    }
-
-
-    /**
-     * @param aInput
-     * @return
-     */
-    public static List<Line> getAsList(LinkedList<String> aInput) {
-        ArrayList<Line> lines = new ArrayList<>();
-        for (String str : aInput) {
-            lines.add(new Line(str));
-        }
-        return lines;
-    }
-
-    public static SortedSet<Line> getAsSet(LinkedList<String> aInput) {
-        SortedSet<Line> lines = new TreeSet<>();
-        for (String str : aInput) {
-            Line l = new Line(str);
-            if (lines.contains(l)) {
-                // TODO: already there, something different to do !!
-            } else {
-                lines.add(new Line(str));
-            }
-        }
-        return lines;
     }
 
 

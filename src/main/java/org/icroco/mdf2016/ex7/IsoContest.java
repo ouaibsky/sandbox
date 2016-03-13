@@ -25,12 +25,13 @@ public class IsoContest {
     }
 
     static List<String> getSolution(LinkedList<String> aInput) {
-        LinkedList<String> output   = new LinkedList<>();
-        int                nbLines  = Integer.parseInt(aInput.removeFirst());
-        int                resultat = 0;
-        IsoContestBase.localEcho("Read nbLine: " + nbLines);
+        LinkedList<String> output    = new LinkedList<>();
+        int                firstLine = Integer.parseInt(aInput.removeFirst());
+        //Integer            firstLine = toIntArray(aInput.removeFirst());  // TODO: remove or uncomment
+        int                resultat  = 0;
+        IsoContestBase.localEcho("Read firstLine: " + firstLine);
 
-        while(!aInput.isEmpty()) {
+        while (!aInput.isEmpty()) {
             int value = Integer.valueOf(aInput.removeFirst());  // TODO: remove or uncomment
             // Integer[] line = toIntArray(aInput.removeFirst());  // TODO: remove or uncomment
             // List<Line> lines = getAsList(aInput);               // TODO: remove or uncomment

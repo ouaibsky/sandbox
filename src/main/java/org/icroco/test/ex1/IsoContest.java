@@ -16,7 +16,7 @@ public class IsoContest {
         LinkedList<String> input = new LinkedList<>();
 
         while (sc.hasNextLine())
-            input.add(sc.nextLine());
+            input.add(sc.nextLine().trim());
 
         List<String> output = getSolution(input);
 
@@ -26,19 +26,20 @@ public class IsoContest {
 
     static List<String> getSolution(LinkedList<String> aInput) {
         LinkedList<String> output    = new LinkedList<>();
-        int                firstLine = Integer.parseInt(aInput.removeFirst().trim());   // TODO
-        IsoContestBase.localEcho("Read firstLine: " + firstLine);                       // TODO
-        IsoContestBase.localEcho("Read Tour: " + aInput.removeFirst());                 // TODO
+        int                firstLine = Integer.parseInt(aInput.removeFirst());
+        //Integer            firstLine = toIntArray(aInput.removeFirst());  // TODO: remove or uncomment
+        int                resultat  = 0;
+        IsoContestBase.localEcho("Read firstLine: " + firstLine);
 
-        int resultat = 0;
-
-        List<Line> lines = getAsList(aInput);
-        for (Line l : lines) {
-            firstLine += (-l.x + l.y);
+        while (!aInput.isEmpty()) {
+            int value = Integer.valueOf(aInput.removeFirst());  // TODO: remove or uncomment
+            // Integer[] line = toIntArray(aInput.removeFirst());  // TODO: remove or uncomment
+            // List<Line> lines = getAsList(aInput);               // TODO: remove or uncomment
         }
+
         IsoContestBase.localEcho("");
 
-        IsoContestBase.localEcho("resultat: " + resultat);
+        IsoContestBase.localEcho("result: " + resultat);
         output.add("" + resultat);
         IsoContestBase.localEcho("----");
         IsoContestBase.localEcho("");

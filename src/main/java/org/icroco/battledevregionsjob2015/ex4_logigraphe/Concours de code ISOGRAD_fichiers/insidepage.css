@@ -1,0 +1,804 @@
+
+
+.box-main{
+   margin-top:0px;
+	width: 65%;
+    min-height: 500px;
+    float: left;
+    margin-right: 30px;
+    padding-bottom: 30px;
+	
+	clear:left;
+}
+.box-main.all-width{
+    width: 100%;
+    margin-right: 0px;
+}
+.box-main img.img-intro{
+    margin-bottom: 30px;  
+    width: 20%;
+    float: left;
+}
+.box-main .desc-intro{
+    width: 75%;
+    margin-left: 5%;
+    float: left;
+}
+.errormessage, p.message_content.error{
+    margin: 20px 0px;
+    color: #D1555E;
+}
+/*******************************************************************************************/
+/*				VARIOUS																*/
+/*******************************************************************************************/
+.box-main .box .desc.alone{
+    margin-top: 40px;
+}
+
+.box-main .box .testimonial:last-child{
+    margin-bottom: 0px;
+}
+img.picto{
+    width: 100px;
+}
+
+div.box > div.container{
+	padding:0;
+}
+
+/*******************************************************************************************/
+/*				ARTICLE																*/
+/*******************************************************************************************/
+div.box-main article{
+	float:left;
+}
+
+
+article{
+   /* background: url("../images/home/dotted-line-grey.png") no-repeat scroll 50% 100% transparent;*/
+    margin-bottom:0px;
+    clear: left;
+	margin-top:70px;
+	display: block;
+	width:100%;
+}
+
+
+article h2,article p, article ul, article table,article p.desc{
+	float:left;
+	clear:left;
+}
+
+div.box-main article:first-of-type h2, div.box-main article:first-of-type,
+article ul, article ul li:first-of-type{
+	margin-top:0px;
+}
+
+article img{
+    display: block;
+}
+
+article div.screenshot_below_container{
+	margin-top:45px;
+	float:left;
+	width:100%;
+}
+
+/*******************************************************************************************/
+/*					FIL ARIANE														*/
+/*******************************************************************************************/
+.wizard, .form-wizard{
+	width:100%;
+	margin-top:10px;
+	float:left;
+}
+.wizard{
+    margin-bottom: 20px;
+}
+.wizard li{
+    color: #ccc;
+    font-size: 12px;
+    text-transform: none;
+    position: relative;
+    float: left;
+    background: none;
+    margin: 0;
+    padding: 0;
+}
+.wizard li .element-arrow{
+    margin: 0 10px;
+}
+.wizard li.active{
+    color: #777;
+}
+/* Form Ariane */
+.form-wizard{
+    margin-bottom: 25px;
+    margin-top: 15px;
+}
+.form-wizard li{
+    color: #999999;
+    font-size: 13px;
+    text-transform: uppercase;
+    position: relative;
+    float: left;
+    padding: 0 15px 0 15px;
+    margin: 0;
+    cursor: default;
+    height: 40px;
+    line-height: 40px;
+    background: none;
+}
+.form-wizard li.active{
+    color: #6D6F71;
+}
+
+.form-wizard li:first-of-type{
+    padding-left: 0px;
+}
+.form-wizard li.arrow:before, article#box-ariane li.arrow:after {
+    content: "";
+    position: absolute;
+    right: -10px;
+    border: 20px solid transparent;
+    border-right: 0;
+    border-left: 10px solid #e0e4e8;
+    border-left-color: rgba(0,0,0,0.05);
+    z-index: 1;
+}
+.form-wizard li .step{
+    background-color: #999999;
+    border-radius: 12px;
+    color: #fff;
+    display: inline-block;
+    font-size: 16px;
+    line-height: 20px;
+    margin: 0px 12px;
+    padding: 3px 0px 1px 0px;
+    text-align: center;
+    width: 30px;
+}
+.form-wizard li.active .step{
+    background-color: #eb5f69;
+}
+/*******************************************************************************************/
+/*					Howitworks														*/
+/*******************************************************************************************/
+
+
+article#box-howitworks ul.four_steps li:first-of-type, article#box-howitworks ul.five_steps li:first-of-type {
+  background: none repeat scroll 0 0 #57758d;
+  color: #fff;
+  font-family: "Comfortaa",cursive;
+  font-size: 16px;
+  height: auto;
+  padding:0;
+}
+
+article#box-howitworks ul.four_steps li:first-of-type{
+	width:758px;
+}
+
+article#box-howitworks ul li:first-of-type a{
+	display:inline-block;
+	width:50%;
+	background:#CCC;
+	padding: 10px 0 10px 10px;
+	color:#FFF;
+	text-decoration:none;
+}
+
+article#box-howitworks ul li:first-of-type a:hover{
+	text-decoration: underline;
+}
+
+article#box-howitworks ul li:first-of-type a.no_select:hover{
+	text-decoration: none;
+}
+
+
+article#box-howitworks ul li:first-of-type a.selected{
+	background :#57758d
+}
+
+article#box-howitworks ul.four_steps li{
+	background: url("../images/howitworks/howitworks_background_4_steps.png") no-repeat scroll 0px 0 transparent;
+	width: 189px;
+}
+
+article#box-howitworks ul.four_steps li:last-of-type{
+	width:191px;
+}
+
+article#box-howitworks ul.five_steps li:first-of-type{
+	width:755px;
+}
+
+article#box-howitworks ul.five_steps li{
+	background: url("../images/howitworks/howitworks_background_5_steps.png") no-repeat scroll 0px 0 transparent;
+	width: 151px;
+}
+
+article#box-howitworks ul.five_steps li:last-of-type{
+	width:152px;
+}
+
+article#box-howitworks ul li {
+  clear: none;
+  display: block;
+  float: left;
+  height: 374px;
+  list-style: outside none none;
+  margin: 0;
+  padding: 20px 5px 0 10px;
+}
+
+
+article#box-howitworks ul li img{
+	display: block;
+	margin:0px auto 15px auto;
+	height:70px;
+}
+
+article#box-howitworks ul:nth-of-type(2){
+	display:none;
+}
+/*******************************************************************************************/
+/*					CONTACT														*/
+/*******************************************************************************************/
+article#box-contact form{
+	width:520px; /* will enable correct centering og the button*/
+}
+
+footer .content.box-contacts .box-contact.box-form .form-contact .message.success{
+    float: right;
+}
+
+/*******************************************************************************************/
+/*					ARTICLE		ADAPTIVE													*/
+/*******************************************************************************************/
+article#box-adaptive  thead tr th:nth-child(2) {
+    border-right: 1px solid #2d536f;
+	
+}
+/*******************************************************************************************/
+/*					ARTICLE		PAYMENT RESULT								*/
+/*******************************************************************************************/
+article#payment-result{
+	margin-top:30px;
+}
+
+article#payment-result a#continuetosystem{
+	margin-top:30px;
+}
+
+/*******************************************************************************************/
+/*					ARTICLE		INFORMATATION								*/
+/*******************************************************************************************/
+article#container-information{
+	background: url("../images/home/dotted-line-grey.png") no-repeat  50% 9px, url("../images/needinfo_background.png") no-repeat  50% 77px ;
+	padding:80px 0px 45px 0px;
+	margin-top:10px;
+}
+article#container-information p{
+    text-align: center;
+    font-size: 24px;
+    line-height: 32px;
+    text-transform: uppercase;
+	font-family: 'Comfortaa',cursive;
+	width:100%;
+	padding-left:80px;
+	color:#eb5f69;
+}
+/*******************************************************************************************/
+/*					ARTICLE		PRECISE RESULT								*/
+/*******************************************************************************************/
+article#box-preciseresult div.box-button{
+	clear:none;
+	margin-right:20px;
+	display:inline;
+}
+
+article#box-preciseresult table tr th:nth-of-type(2){
+	width:323px;
+}
+
+article#box-preciseresult table tr:last-of-type td{
+	text-align: center;
+}
+
+/*******************************************************************************************/
+/*					SCORE AND LEVEL ARTICLE													*/
+/*******************************************************************************************/
+article#box-understandscore thead tr th:nth-of-type(2){
+	width:140px;
+}
+
+article#box-understandscore  tr td:first-of-type{
+	padding-left:20px;
+	font-weight:bold;
+}
+
+article#box-understandscore  tr td{
+	vertical-align: middle;
+}
+/*******************************************************************************************/
+/*					ARTICLE		OfficeSoftware and CodeLanguage 							*/
+/*******************************************************************************************/
+article div.test_description_container img{
+	display: inline-block;	
+	margin-right:10px;
+	max-height: 40px;
+}
+
+article div.test_description_container{
+	float: left;
+        width: 45%;
+        margin-right: 20px;
+        min-height: 390px;
+        margin-bottom: 30px;
+        border: 1px #ddd solid;
+        padding: 10px 20px;
+}
+
+article div.test_description_container:nth-child(even){
+    clear: left;
+}
+
+article div.test_description_container h2{
+	color:#656565;
+}
+
+article div.test_description_container ul{
+	min-height: 235px;
+	width:100%;
+}
+
+article div.test_description_container:nth-child(odd){
+	float:right;
+}
+
+article div.test_description_container:last-of-type{
+	min-height: 0px;
+}
+
+
+article#box-softwarelist h2.title{
+	background-color: #fff;
+    margin-bottom: 0;
+    padding-bottom: 20px;
+}
+/*******************************************************************************************/
+/*					ARTICLE		DEMO PACK					*/
+/*******************************************************************************************/
+article#box-demopack{
+    border: 1px solid #AAA;
+    padding:10px; 
+    width:100%;
+    float:left;
+}
+article#box-demopack h2{
+	text-align: center;
+}
+article#box-demopack .form-group label{
+	text-align: right;
+}
+
+/*******************************************************************************************/
+/*					ARTICLE		PARTNERS					*/
+/*******************************************************************************************/
+article#box-tosapartners ul li.image_row {
+	float:left;
+	list-style: none;
+	padding-bottom:20px;
+	vertical-align: baseline;
+	background: none;
+}
+
+article#box-tosapartners ul li.image_row img{
+	margin-right:30px;
+	max-width: 140px;
+	max-height:  70px;
+	display: inline;
+	vertical-align: baseline;
+}
+
+article#box-tosapartners ul li.image_row a{
+	display: block;
+	margin-bottom: 20px;
+}
+article#box-tosapartners ul li.image_row a:first-of-type{
+	margin-bottom: 5px;
+}
+
+article#box-tosapartners ul li.btn_row {
+	list-style: none;
+	margin: 25px auto;
+	background: none;
+}
+
+article#box-tosapartners ul li{
+	clear:left;
+}
+/*******************************************************************************************/
+/*					ARTICLE		Code Contest							*/
+/*******************************************************************************************/
+article#box-codeorganizecontest div.box-button{
+	clear:left;
+}
+/*******************************************************************************************/
+/*					ARTICLE		Individuals certify skill							*/
+/*******************************************************************************************/
+article#box-individual  div.box-button{
+	float:left;
+	margin-top:20px;
+	margin-bottom:60px;
+}
+/*******************************************************************************************/
+/*					ARTICLE		Tarification							*/
+/*******************************************************************************************/
+article#container-prices #formpack{
+	float:left;
+        clear: left;
+        width: 100%;
+        margin-top: 15px;
+}
+/*******************************************************************************************/
+/*					ARTICLE		How it works							*/
+/*******************************************************************************************/
+.content-howitworks {
+	margin-top: 20px;
+}
+/*******************************************************************************************/
+/*					ARTICLE		Free positionning itro							*/
+/*******************************************************************************************/
+#dialog_freetestskills #formregister{
+    padding: 20px;
+padding-bottom: 0px;
+}
+#dialog_freetestskills label {
+    float: left;
+	color:#333;
+}
+#dialog_freetestskills .social_login{
+    margin-bottom: 50px;
+}
+
+#dialog_freetestskills p.social_login a{
+	top : 24px;
+	position : relative;
+}
+article#box-softwarelist .see-more{
+    float: right;
+    text-decoration: underline;
+    color: #2D5470;
+}
+
+/*******************************************************************************************/
+/*					ARTICLE		SCORE AND JOBS												*/
+/*******************************************************************************************/
+article#box-metier p{
+	float:left;
+	clear:none;
+	text-align: center;
+	width: 250px;
+}
+
+article#box-metier div#result{
+	padding-top:30px;
+}
+
+article#box-metier p img{
+	display: inline-block;
+	margin-bottom: 5px;
+}
+
+/*******************************************************************************************/
+/*					ARTICLE		How it works							*/
+/*******************************************************************************************/
+article#container-questionscontest ul li a {
+	color: #666
+}
+
+/*******************************************************************************************/
+/*					ARTICLE		TOSA PREPARE						*/
+/*******************************************************************************************/
+article#box-tosaprepare img{
+	width:100%;
+	padding: 0px 35px;
+	box-sizing:border-box;
+}
+
+/*******************************************************************************************/
+/*					ARTICLE		validateskill					*/
+/*******************************************************************************************/
+article#box-validateskills ul:last-of-type{
+	padding-bottom:40px;
+}
+/*******************************************************************************************/
+/*					ARTICLE		Verify certification						*/
+/*******************************************************************************************/
+article#box-verify #checkdiploma .form-group label{
+	padding-left: 15px;
+}
+/*******************************************************************************************/
+/*					ARTICLE		Contact						*/
+/*******************************************************************************************/
+article#box-contact .box-button{
+	margin-top: 20px;
+}
+/*******************************************************************************************/
+/*					ASIDE AREA																*/
+/*******************************************************************************************/
+aside{
+        margin-top:30px;
+    	width: 32%;
+        float: left;
+	position:relative;
+}
+
+aside img.aside_shadow{
+	position:absolute;
+	right:-23px;
+	top:0px;
+}
+
+aside section{
+    width: 100%;
+    height: 290px;
+    padding: 20px 15px 0px;
+    margin-bottom: 30px;
+    color: #fff;
+    border: 1px solid #ddd;
+    position: relative;
+}
+
+aside section p, aside section ul li, aside section input{
+	font-family:arial;
+	font-size: 14px;
+}
+
+aside .box-lateral.pink{
+    background-color: #EF7F87;
+}
+aside .box-lateral.blue{
+    background-color: #57758D;
+}
+aside .box-lateral.green{
+    background-color: #7FEFAF;
+}
+aside .box-lateral.white{
+    background-color: #fff;
+    border: 2px solid #CFCFCF;
+}
+
+
+aside h3{
+    font-family: 'Comfortaa', cursive;
+	font-size: 22px;
+    line-height: 30px;
+    text-align: left;
+    margin-top: 0px;
+	color:#FFF;
+	text-transform:uppercase;
+	font-weight: 300;
+	margin-bottom:30px;
+}
+
+aside h3 Strong{
+	font-weight: 700;
+}
+
+aside section ul li{
+	list-style: outside;
+	line-height:23px;
+	padding-bottom:10px;
+	margin-left:30px;
+}
+aside section  p.reason{
+	text-transform: uppercase;
+	list-style: none;
+	margin-left:0;
+	font-weight: bold;
+	text-align:left;
+}
+
+aside .box-lateral  .form-contact{
+    position: absolute;
+    bottom: 5px;
+    width: 95%;
+}
+aside .box-lateral  .form-contact .form-group{
+    margin-bottom: 0px;
+}
+aside .box-lateral .box-button.fixed-bottom.right-pull{
+    right: 15px;
+}
+aside .box-lateral .box-button.fixed-bottom.center-pull{
+    right: 34%;
+}
+
+aside .symbol{
+    font-size: 11px;
+}
+
+/*******************************************************************************************/
+/*					ASIDE TAKE A TEST														*/
+/*******************************************************************************************/
+aside section#TakeATest h1{
+	margin-bottom:15px;
+}
+
+aside section#TakeATest input[type="text"]{
+	width:220px;
+	position:relative;
+	left:-60px;
+}
+
+aside section#TakeATest label{
+	padding-top:5px;
+}
+aside section#TakeATest p.social_login span{
+	display: block;
+	padding-bottom:10px;
+}
+
+a.facebook, a.google, a.linkedin {
+	 width: 59px;
+	 height:59px;
+	 margin-right:35px;
+	 display:inline-block;
+}
+a.facebook
+{	background: url(../images/icons/icon_fb.png) 0 0 no-repeat;
+}
+
+a.google
+{	background: url(../images/icons/icon_google.png) 0 0 no-repeat;
+}
+
+a.linkedin
+{	background: url(../images/icons/icon_linkedin.png) 0 0 no-repeat;
+}
+
+a.facebook:hover,a.google:hover,a.linkedin:hover
+{	background-position: 0 100%;
+}
+/*******************************************************************************************/
+/*					ASIDE CREATE ACCOUNT													*/
+/*******************************************************************************************/
+
+aside section#CreateAccount input[type="text"]{
+	margin-left:30px;
+	width:220px;
+}
+
+/*******************************************************************************************/
+/*					ASIDE PREPARE TOSA													*/
+/*******************************************************************************************/
+aside section#PrepareTosa p {
+	text-align:justify;
+}
+
+/*******************************************************************************************/
+/*					ASIDE BUY A PACK													*/
+/*******************************************************************************************/
+aside section#BuyAPack div.pack_small {
+    float: left;
+	clear:none;
+	display : block;
+	width:109px;
+	height:139px;
+	margin-right:1px;
+	background: url(../images/price_background_small.png) 0 0 no-repeat;
+	text-align: center;
+}
+
+aside section#BuyAPack p{
+	width: 100%;
+    font-weight: bold;
+}
+
+aside section#BuyAPack p.des{
+	font-family: comfortaa;
+	color: #666;
+    font-size: 14px;
+    height: 40px;
+    margin-top: 23px;
+    text-transform: uppercase;
+
+}
+
+aside section#BuyAPack p.num_test{
+	color:#666;
+	font-weight: 400;
+	font-family: arial;
+}
+
+aside section#BuyAPack p.price{
+	color:#EB5F69;
+	font-family: 'Nunito';
+	font-size:18px;
+}
+
+aside section#BuyAPack p.price span{
+	font-size:12px;
+}
+
+/*******************************************************************************************/
+/*					ASIDE BUY CERTIF ON LINE												*/
+/*******************************************************************************************/
+aside .box-price-certif{
+    width: 32%;
+    padding-right: 0%;
+    margin-left: 1%;
+    float: left;
+    border-right: 1px dashed #fff;
+}
+aside .box-price-certif:first-child{
+    margin-left: 0px;
+    margin-right: 1%;
+}
+aside .box-price-certif:last-child{
+    margin-right: 0px;
+    border-right: none;
+}
+aside .box-price-certif .product{
+    font-size: 22px;
+    text-transform: uppercase;
+}
+aside .box-price-certif .price{
+    font-size: 32px;
+}
+
+/*******************************************************************************************/
+/*					DIALOG												*/
+/*******************************************************************************************/
+.ui-dialog-titlebar-close{
+    display:none;
+}
+
+/*******************************************************************************************/
+/*					SCREEN SHOOT											*/
+/*******************************************************************************************/
+article div.screenshot{
+    clear: both;
+	float:none;
+    width: 500px;
+    margin: 0 auto 30px auto;
+}
+
+article div.screenshot.laptop{
+	background: url("../images/screenshot/laptop.png") no-repeat 0 0;
+    height: 297px;
+}
+
+article div.screenshot.desktop{
+	background: url("../images/screenshot/desktop.png") no-repeat 0 0;
+    height: 320px;
+	 width: 499px;
+	
+}
+
+article div.screenshot div.crop{
+	overflow:hidden;
+	height:238px;
+}
+
+article div.screenshot.desktop div{
+	height:216px;
+}
+
+article div.screenshot.laptop img{
+	position:relative;
+	top:20px;
+	left:77px;
+	width:346px;
+}
+
+article div.screenshot.desktop img{
+	position:relative;
+	top:17px;
+	left:70px;
+	width:350px;
+}

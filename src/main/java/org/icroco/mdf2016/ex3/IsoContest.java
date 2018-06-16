@@ -25,17 +25,26 @@ public class IsoContest {
     }
 
     static List<String> getSolution(LinkedList<String> aInput) {
-        LinkedList<String> output    = new LinkedList<>();
-        int                firstLine = Integer.parseInt(aInput.removeFirst());
-        //Integer            firstLine = toIntArray(aInput.removeFirst());  // TODO: remove or uncomment
-        int                resultat  = 0;
-        IsoContestBase.localEcho("Read firstLine: " + firstLine);
+        LinkedList<String> output  = new LinkedList<>();
+        int                montant = Integer.parseInt(aInput.removeFirst());
+        int                len     = Integer.parseInt(aInput.removeFirst());
+        //Integer[]            firstLine = toIntArray(aInput.removeFirst());  // TODO: remove or uncomment
+        int resultat = 0;
+        IsoContestBase.localEcho("Read firstLine: " + montant);
 
-        while (!aInput.isEmpty()) {
-            int value = Integer.valueOf(aInput.removeFirst());  // TODO: remove or uncomment
-            // Integer[] line = toIntArray(aInput.removeFirst());  // TODO: remove or uncomment
-            // List<Line> lines = getAsList(aInput);               // TODO: remove or uncomment
+        TreeMap<Integer, Line> types = new TreeMap<>();
+
+
+        List<Line> lines = getAsList(aInput);
+        // TODO: remove or uncomment
+        for (Line l : lines) {
+            types.put(l.x, l);
         }
+
+        for (Integer i : types.keySet()) {
+
+        }
+
 
         IsoContestBase.localEcho("");
 
@@ -54,8 +63,8 @@ public class IsoContest {
 
         public Line(final String oneLine) {
             String[] SA = oneLine.trim().split("\\s+"); // TODO replace speparator: "," or ":"
-            x = Integer.parseInt(SA[0]);           //                           // TODO: change type: int, string, ...
-            y = Integer.parseInt(SA[1]);           // TODO: change type: int, string, ...
+            x = Integer.parseInt(SA[1]);           //                           // TODO: change type: int, string, ...
+            y = Integer.parseInt(SA[0]);           // TODO: change type: int, string, ...
             IsoContestBase.localEcho(String.format("Read Line: %1$s %2$s", x, y));
         }
 

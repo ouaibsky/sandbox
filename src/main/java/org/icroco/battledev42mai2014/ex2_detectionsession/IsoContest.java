@@ -32,24 +32,23 @@ public class IsoContest {
 
         //IsoContestBase.localEcho("Read firstLine: " + Arrays.toString(firstLine));
 
-        int prev = Integer.valueOf(firstLine[0], 16);
-        int    count    = prev;
-        int maxLen = 0;
+        int    prev   = 0;
+        int    count  = 0;
+        int    maxCount = 0;
         String maxSeq = "";
-        String res    = firstLine[0]+" ";
-        for (int i = 1; i < firstLine.length; i++) {
+        String res    = "";
+        for (int i = 0; i < firstLine.length; i++) {
             int v = Integer.valueOf(firstLine[i], 16);
-            if (v == prev + 1) {
+            if (i == 0 || (v == (prev + 1))) {
                 res += firstLine[i] + " ";
                 count += v;
-
             } else {
-                if (count > maxLen) {
-                    maxLen = count;
+                if (count > maxCount) {
+                    maxCount = count;
                     maxSeq = res;
                 }
                 count = v;
-                res = firstLine[i]+" ";
+                res = firstLine[i] + " ";
             }
             prev = v;
         }
